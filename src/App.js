@@ -1,12 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import Home from './components/Home'
 
 function App() {
   console.log(process.env.REACT_APP_SPOTIFY_KEY)
   
   return (
     <div className="App">
-      <header className="App-header">
+      <Home />
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -19,7 +21,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
   );
 }
