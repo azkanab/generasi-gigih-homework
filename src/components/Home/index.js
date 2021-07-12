@@ -1,16 +1,20 @@
 import { useEffect } from 'react'
 import { useRecoilValue } from 'recoil'
-import '../../styles/Home/Home.css'
 import { mockTrackState } from '../../state/trackState'
+import TrackCard from './TrackCard'
 
 export default function Home() {
     const track = useRecoilValue(mockTrackState)
 
-    useEffect(() => {
-        console.log(track)
-    }, [])
+    const renderTrackCard = () => {
+        return (
+            <TrackCard data={track} />
+        )
+    }
 
-    return (
-        <h1>Halo</h1>
-    )
+    useEffect(() => {
+        console.log(track, 'My Track')
+    }, [track])
+
+    return renderTrackCard()
 }

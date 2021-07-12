@@ -1,6 +1,4 @@
 import data from './mock-data-track'
-import { useRecoilState } from 'recoil'
-import { trackState } from '../state/trackState'
 
 const axios = require('axios');
 

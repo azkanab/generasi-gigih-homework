@@ -1,0 +1,31 @@
+.wrapper {
+	height: fit-content;
+	width: auto;
+	background-color: #F8EAD9;
+	border: 1.5px solid black;
+	padding: 10px;
+}
+
+.albumImage {
+	height: 200px;
+	width: auto;
+	margin-bottom: 10px;
+}
+
+.titleText {
+	font-weight: bold;
+	font-size: 20px;
+	margin-bottom: 5px;
+}
+
+.artistText {
+	margin-bottom: 5px;
+}
+
+.albumText {
+	margin-bottom: 15px;
+}
+
+.wrapper button {
+	padding: 2px 10px;
+}
