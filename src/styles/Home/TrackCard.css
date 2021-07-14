@@ -12,20 +12,16 @@
 	margin-bottom: 10px;
 }
 
-.titleText {
+p {
+	margin-bottom: 5px;	
+}
+
+.title {
 	font-weight: bold;
-	font-size: 20px;
-	margin-bottom: 5px;
-}
-
-.artistText {
-	margin-bottom: 5px;
-}
-
-.albumText {
-	margin-bottom: 15px;
+	font-size: 20px
 }
 
 .wrapper button {
 	padding: 2px 10px;
+	margin-top: 10px
 }
