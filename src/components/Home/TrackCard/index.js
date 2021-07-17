@@ -14,7 +14,7 @@ export default function TrackCard({ data }) {
 	const [albumName, setAlbumName] = useState('')
 	const [spotifyUrl, setSpotifyUrl] = useState('')
 
-	const SELECT_BUTTON = "Select"
+	const SELECT_BUTTON = "▶"
 
 	const handleSelectButtonClick = () => {
 		window.location.href = spotifyUrl

@@ -1,12 +1,17 @@
 .wrapper {
 	width: auto;
-	background-color: hsla(0,0%,100%,.1);
+	background-color: hsla(0,0%,50%,.1);
 	padding: 0px;
 	border-radius: 10px;
 	color: white;
 	max-width: 200px;
 	display: flex;
 	flex-direction: column;
+	position: relative;
+}
+
+.wrapper:hover {
+	background-color: hsla(0,0%,80%,.1);
 }
 
 .detail-container {
@@ -18,11 +23,15 @@
 
 .text-wrapper {
 	flex: auto;
+	cursor: default;
 }
 
 .button-wrapper {
-	flex: auto;
-	display: flex;
+	position: absolute;
+	right: 10px;
+	top: 145px;
+	opacity: 0;
+	transition: opacity 300ms;
 }
 
 .wrapper button {
@@ -31,16 +40,27 @@
 	font-family: 'Circular-Bold';
 	color: white;
 	background-color: #1DB954;
-	font-size: 14px;
-	width: 100%;
-	padding: 6px;
-	border-radius: 7px;
+	font-size: 20px;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
 	border: 0;
 	cursor: pointer;
 	align-self: flex-end;
 	flex: 1;
+    box-shadow: 0px 8px 10px 0px rgba(10, 31, 68, 0.1);
 }
 
 .wrapper button:hover {
 	background-color: #15863d;
+	transition: all 300ms;
+	width: 36px;
+	height: 36px;
+	font-size: 22px;
+}
+
+.wrapper:hover .button-wrapper {
+	display: flex;
+	flex: auto;
+	opacity: 1;
 }
