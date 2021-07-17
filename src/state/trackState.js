@@ -10,6 +10,14 @@ export const trackState = atom({
     ]
 })
 
+export const tracksState = atom({
+    key: 'tracksState',
+    default: [],
+    effects_UNSTABLE: [
+        localStorageEffect('tracks')
+    ]
+})
+
 export const getTrackState = selector({
     key: 'getTrackState',
     get: async () => {

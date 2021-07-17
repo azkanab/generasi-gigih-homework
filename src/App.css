@@ -1,10 +1,32 @@
+@font-face {
+  font-family: 'Circular-Regular';
+  src: url('./fonts/CircularStd-Book.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Circular-Medium';
+  src: url('./fonts/CircularStd-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Circular-Bold';
+  src: url('./fonts/CircularStd-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Circular-Black';
+  src: url('./fonts/CircularStd-Black.ttf') format('truetype');
+}
+
 * {
   margin: 0;
   padding: 0;
 }
 
 .container {
-  padding: 20px;
+  padding: 90px 50px;
+  background-color: #191414;
+  min-height: 100vh;
 }
 
 .App {
