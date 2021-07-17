@@ -1,4 +1,5 @@
 import data from './mock-data-track'
+import tracksData from './mock-data-tracks'
 
 const axios = require('axios');
 
@@ -44,4 +45,26 @@ export function getMockTrack() {
         albumName: data.album.name,
         spotifyUrl: data.external_urls.spotify
     })
+}
+
+export const arrKey = ['id', 'imgUrl', 'trackTitle', 'artistName', 'albumName', 'spotifyUrl']
+
+export function getAllMockTracks() {
+    let response = []
+
+    tracksData.forEach(track => {
+        let image = findSmallImage(track.album.images)
+
+        let trackData = {}
+        trackData[arrKey[0]] = track.id
+        trackData[arrKey[1]] = image.url
+        trackData[arrKey[2]] = track.name
+        trackData[arrKey[3]] = track.artists[0].name
+        trackData[arrKey[4]] = track.album.name
+        trackData[arrKey[5]] = track.external_urls.spotify
+
+        response.push(trackData)
+    })
+
+    return response
 }

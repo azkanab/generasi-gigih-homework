@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import '../../../styles/Home/TrackCard.css'
-import Image from './Image'
-import Button from './Button'
-import Text from './Text'
+import Image from '../../common/Image'
+import Button from '../../common/Button'
+import Text from '../../common/Text'
 import isObjectEmpty from '../../../utils/isObjectEmpty'
 
 export default function TrackCard({ data }) {
@@ -33,11 +33,17 @@ export default function TrackCard({ data }) {
 
     return (
         <div className="wrapper">
-			<Image imgUrl={imgUrl} imgAlt={altAlbum} />
-			<Text type="title" text={trackTitle} />
-			<Text text={artistName} />
-			<Text text={albumName} />
-		    <Button text={SELECT_BUTTON} handleClick={handleSelectButtonClick} />
+			<Image imgUrl={imgUrl} imgAlt={altAlbum} imgClass="albumImage" />
+			<div className="detail-container">
+				<div className="text-wrapper">
+					<Text textClass="title" text={trackTitle} />
+					<Text textClass="artistText" text={artistName} />
+					<Text textClass="albumText" text={albumName} />
+				</div>
+				<div className="button-wrapper">
+					<Button text={SELECT_BUTTON} handleClick={handleSelectButtonClick} />
+				</div>
+			</div>
 		</div>
     )
 }

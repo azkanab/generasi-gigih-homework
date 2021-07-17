@@ -1,0 +1,31 @@
+p {
+	font-family: 'Circular-Regular';
+	margin-bottom: 5px;
+	font-size: 14px;
+}
+
+.main-title {
+	font-family: 'Circular-Black';
+	font-size: 32px;
+	color: white;
+	margin-bottom: 20px;
+}
+
+.title {
+	font-family: 'Circular-Bold';
+	font-size: 16px;
+}
+
+.albumText {
+	margin: 10px 0px;
+}
+
+.header-logo-text {
+	font-family: 'Circular-Bold';
+    color: white;
+    font-size: 20px;
+	line-height: 30px;
+	float: right;
+	margin-left: 10px;
+	margin-bottom: 0px;
+}

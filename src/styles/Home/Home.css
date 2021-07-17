@@ -1,0 +1,11 @@
+.trackCard-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px;
+    width: fit-content;
+}
+
+.trackCard-wrapper {
+    justify-content: center;
+}

@@ -1,0 +1,24 @@
+.header {
+    background-color: #191414;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100% - 100px);
+    padding: 10px 50px;
+    /* box-shadow: 0px 8px 10px 0px hsla(0,0%,20%,.1); */
+}
+
+.logo {
+    float: left;
+    cursor: pointer;
+}
+
+.profile {
+    font-family: 'Circular-Medium';
+    color: white;
+    float: right;
+    font-size: 15px;
+    background-color: hsla(0,0%,100%,.1);
+    padding: 5px 15px;
+    border-radius: 20px;
+}
