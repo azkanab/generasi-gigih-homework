@@ -23,3 +23,17 @@
     padding: 5px 15px;
     border-radius: 20px;
 }
+
+@media screen and (max-width: 600px) {
+    .header {
+      padding: 10px 30px;
+      width: calc(100% - 60px);
+    }
+  }
+  
+  @media screen and (max-width: 485px) {
+    .header {
+      padding: 10px 20px;
+      width: calc(100% - 40px);
+    }
+  }

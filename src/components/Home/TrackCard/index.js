@@ -14,7 +14,15 @@ export default function TrackCard({ data }) {
 	const [albumName, setAlbumName] = useState('')
 	const [spotifyUrl, setSpotifyUrl] = useState('')
 
-	const SELECT_BUTTON = "▶"
+	const SELECT_BUTTON = ""
+	const IMG_PLAY_BUTTON = "./playbutton.png"
+	const IMG_PLAY_ALT = "Play Button"
+	const IMG_PLAY_CLASS = "play-button"
+	const playButton = {
+		imgUrl: IMG_PLAY_BUTTON,
+		imgAlt: IMG_PLAY_ALT,
+		imgClass: IMG_PLAY_CLASS
+	}
 
 	const handleSelectButtonClick = () => {
 		window.location.href = spotifyUrl
@@ -33,15 +41,17 @@ export default function TrackCard({ data }) {
 
     return (
         <div className="wrapper">
-			<Image imgUrl={imgUrl} imgAlt={altAlbum} imgClass="albumImage" />
+			<div className="image-wrapper">
+				<Image imgUrl={imgUrl} imgAlt={altAlbum} imgClass="albumImage" />
+				<div className="button-wrapper">
+					<Button img={playButton} text={SELECT_BUTTON} handleClick={handleSelectButtonClick} />
+				</div>
+			</div>
 			<div className="detail-container">
 				<div className="text-wrapper">
 					<Text textClass="title" text={trackTitle} />
 					<Text textClass="artistText" text={artistName} />
 					<Text textClass="albumText" text={albumName} />
-				</div>
-				<div className="button-wrapper">
-					<Button text={SELECT_BUTTON} handleClick={handleSelectButtonClick} />
 				</div>
 			</div>
 		</div>

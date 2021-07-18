@@ -29,6 +29,24 @@
   min-height: 100vh;
 }
 
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 90px 30px;
+  }
+}
+
+@media screen and (max-width: 485px) {
+  .container {
+    padding: 90px 20px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .container {
+    padding: 90px calc(20px - 12.5px);
+  }
+}
+
 .App {
   text-align: center;
 }
