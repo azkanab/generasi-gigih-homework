@@ -4,11 +4,25 @@ p {
 	font-size: 14px;
 }
 
+.loading {
+	font-family: 'Circular-Bold';
+	font-size: 24px;
+	color: white;
+	margin-top: 20px;
+}
+
 .main-title {
 	font-family: 'Circular-Black';
 	font-size: 32px;
 	color: white;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
+}
+
+.login-title {
+	font-family: 'Circular-Bold';
+	font-size: 32px;
+	color: white;
+	margin: 0px;
 }
 
 .title {

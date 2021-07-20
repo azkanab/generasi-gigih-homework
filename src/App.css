@@ -26,7 +26,8 @@
 .container {
   padding: 90px 50px;
   background-color: #191414;
-  min-height: 100vh;
+  min-height: calc(100vh - 180px);
+  display: block;
 }
 
 @media screen and (max-width: 600px) {

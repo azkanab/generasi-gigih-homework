@@ -15,8 +15,6 @@ export function getTrack() {
     function onFetchSuccessful(response) {
         let image = findSmallImage(response.data.album.images)
 
-        console.log(response.data)
-
         return ({
             imgUrl: image.url,
             trackTitle: response.data.name,

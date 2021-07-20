@@ -42,7 +42,6 @@
 .wrapper button {
 	font-family: 'Circular-Bold';
 	color: white;
-	background-color: #1DB954;
 	font-size: 14px;
 	width: 35px;
 	height: 35px;
@@ -59,7 +58,6 @@
 }
 
 .wrapper button:hover {
-	background-color: #15863d;
 	transition: all 300ms;
 	width: 36px;
 	height: 36px;

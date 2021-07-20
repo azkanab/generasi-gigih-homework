@@ -4,17 +4,14 @@ import localStorageEffect from './storage/localStorageEffect'
 export const userState = atom({
     key: 'userState',
     default: {
-        id: 1,
-        fullName: 'Azka Nabilah Mumtaz',
-        nickname: 'Azka',
-        username: 'azkanab'
+        username: 'anonymous'
     },
     effects_UNSTABLE: [
         localStorageEffect('my_profile')
     ]
 })
 
-export const getUser = selector({
+export const getUserState = selector({
     key: 'getUser',
     get: ({get}) => {
         const user = get(userState)

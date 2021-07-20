@@ -5,6 +5,12 @@
 	border-top-right-radius: 10px;
 }
 
+.login-logo {
+	width: 50px;
+	height: auto;
+	margin-right: 10px;
+}
+
 .logo-img {
     width: 25px;
     height: auto;
@@ -13,4 +19,13 @@
 .play-button {
 	width: 14px;
 	height: auto;
+}
+
+.profile-img {
+	height: 135%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	clip-path: circle();
+	margin-top: -5.5px;
 }

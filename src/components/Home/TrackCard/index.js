@@ -44,7 +44,7 @@ export default function TrackCard({ data }) {
 			<div className="image-wrapper">
 				<Image imgUrl={imgUrl} imgAlt={altAlbum} imgClass="albumImage" />
 				<div className="button-wrapper">
-					<Button img={playButton} text={SELECT_BUTTON} handleClick={handleSelectButtonClick} />
+					<Button primary img={playButton} text={SELECT_BUTTON} handleClick={handleSelectButtonClick} />
 				</div>
 			</div>
 			<div className="detail-container">

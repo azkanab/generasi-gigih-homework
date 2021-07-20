@@ -1,12 +1,10 @@
 import './App.css';
-import Home from './pages/Home'
+import Main from './pages';
 
 function App() {
-  console.log(process.env.REACT_APP_SPOTIFY_KEY, 'My Key')
-  
   return (
     <div className="container">
-        <Home />
+        <Main />
     </div>
   );
 }
