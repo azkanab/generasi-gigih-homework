@@ -7,7 +7,7 @@ import Loader from "../components/common/Loader"
 export const KeyContext = React.createContext('loading')
 
 export default function Main() {
-    const [isFetching, setIsFetching] = useState(false)
+    const [isFetching, setIsFetching] = useState(true)
     return (
         <KeyContext.Provider value={{
             setIsFetching: setIsFetching

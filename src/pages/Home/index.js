@@ -59,6 +59,12 @@ export default function Home() {
             switch (error.response.status) {
                 case 401: // unauthorized
                     setToken({})
+                    loaderContext.setIsFetching(false)
+                    history.push('/login')
+                    break;
+                case 400: // bad request
+                    setToken({})
+                    loaderContext.setIsFetching(false)
                     history.push('/login')
                     break;
                 default:
