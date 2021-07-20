@@ -15,13 +15,20 @@
 }
 
 .profile {
-    font-family: 'Circular-Medium';
-    color: white;
     float: right;
-    font-size: 15px;
     background-color: hsla(0,0%,100%,.1);
     padding: 5px 15px;
     border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.profile p {
+  margin-bottom: 0px;
+  font-family: 'Circular-Medium';
+  color: white;
+  font-size: 15px;
+  margin-left: 25px;
 }
 
 @media screen and (max-width: 600px) {
@@ -34,6 +41,6 @@
   @media screen and (max-width: 485px) {
     .header {
       padding: 10px 20px;
-      width: calc(100% - 40px);
+      width: calc(100vw - 40px);
     }
   }

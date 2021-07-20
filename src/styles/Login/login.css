@@ -1,0 +1,26 @@
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: calc(100vh - 180px);
+}
+
+.login-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.login-button-wrapper button {
+    font-family: 'Circular-Bold';
+	color: white;
+	font-size: 16px;
+    padding: 5px 30px; 
+	border-radius: 15px;
+	border: 0;
+    width: fit-content;
+    cursor: pointer;
+}

@@ -1,11 +1,11 @@
 import '../../styles/Navbar/Navbar.css'
-import { getUser } from '../../state/user'
+import { getUserState } from '../../state/user'
 import { useRecoilValue } from 'recoil'
 import Image from '../common/Image'
 import Text from '../common/Text'
 
 export default function Navbar() {
-    const user = useRecoilValue(getUser)
+    const user = useRecoilValue(getUserState)
     const LOGO_IMG_URL = './spotify.png'
     const LOGO_TEXT = 'Spotifi'
 
@@ -15,9 +15,10 @@ export default function Navbar() {
                 <Image imgUrl={LOGO_IMG_URL} imgClass="logo-img" />
                 <Text text={LOGO_TEXT} textClass="header-logo-text" />
             </div>
-            <div className="profile">
-                {user.username}
-            </div>
+            <a href={user.url} className="profile">
+                <Image imgUrl={user.imgUrl} imgAlt='User Picture' imgClass="profile-img" />
+                <p>{user.username}</p>
+            </a>
         </div>
     )
 }
