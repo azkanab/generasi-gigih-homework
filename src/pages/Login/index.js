@@ -25,7 +25,7 @@ export default function Login() {
     useEffect(() => {
         document.title = 'Spotifi | Login';
         loaderContext.setIsFetching(false)
-    }, [])
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <div className="login-container">
