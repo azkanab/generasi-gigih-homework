@@ -44,8 +44,7 @@ export default function Home() {
         }))
     }
 
-    const handleButtonClick = (event) => {
-        event.preventDefault()
+    const handleButtonClick = () => {
         loaderContext.setIsFetching(true)
         if (params.q === '') {
             fetchRecommendation()
