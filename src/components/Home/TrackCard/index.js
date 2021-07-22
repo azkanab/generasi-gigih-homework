@@ -7,12 +7,7 @@ import isObjectEmpty from '../../../utils/isObjectEmpty'
 
 export default function TrackCard({ data }) {
 
-	const [altAlbum, setAltAlbum] = useState('')
-	const [imgUrl, setImgUrl] = useState('')
-	const [trackTitle, setTrackTitle] = useState('')
-	const [artistName, setArtistName] = useState('')
-	const [albumName, setAlbumName] = useState('')
-	const [spotifyUrl, setSpotifyUrl] = useState('')
+	const [track, setTrack] = useState({})
 
 	const SELECT_BUTTON = ""
 	const IMG_PLAY_BUTTON = "./playbutton.png"
@@ -25,35 +20,50 @@ export default function TrackCard({ data }) {
 	}
 
 	const handleSelectButtonClick = () => {
-		window.location.href = spotifyUrl
+		window.location.href = track.url
+	}
+
+	const renderArtists = (artists) => {
+		return (
+			artists.map((artist, idx) => (
+				idx === artists.length-1 ?
+					<Text key={idx} textClass="artistText" text={artist} />
+				:
+					<Text key={idx} textClass="artistText" text={artist + ', '} />
+			))
+		)
 	}
 
 	useEffect(() => {
 		if (!isObjectEmpty(data)) {
-			setAltAlbum(data.albumName + ' Album')
-			setImgUrl(data.imgUrl)
-			setTrackTitle(data.trackTitle)
-			setArtistName(data.artistName)
-			setAlbumName(data.albumName)
-			setSpotifyUrl(data.spotifyUrl)
+			setTrack({
+				altAlbum: data.albumName + ' Album',
+				imgUrl: data.imgUrl,
+				title: data.trackTitle,
+				artists: data.artistName,
+				album: data.albumName,
+				url: data.spotifyUrl
+			})
 		}
 	}, [data])
 
     return (
-        <div className="wrapper">
+		!isObjectEmpty(track) &&
+		<div className="wrapper">
 			<div className="image-wrapper">
-				<Image imgUrl={imgUrl} imgAlt={altAlbum} imgClass="albumImage" />
+				<Image imgUrl={track.imgUrl} imgAlt={track.altAlbum} imgClass="albumImage" />
 				<div className="button-wrapper">
 					<Button primary img={playButton} text={SELECT_BUTTON} handleClick={handleSelectButtonClick} />
 				</div>
 			</div>
 			<div className="detail-container">
 				<div className="text-wrapper">
-					<Text textClass="title" text={trackTitle} />
-					<Text textClass="artistText" text={artistName} />
-					<Text textClass="albumText" text={albumName} />
+					<Text textClass="title" text={track.title} />
+					{renderArtists(track.artists)}
+					<Text textClass="albumText" text={track.album} />
 				</div>
 			</div>
 		</div>
+		
     )
 }
