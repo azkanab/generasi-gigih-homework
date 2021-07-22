@@ -1,26 +1,60 @@
 import { useEffect, useState } from 'react'
+import { useRecoilState } from 'recoil'
 import '../../../styles/Home/TrackCard.css'
 import Image from '../../common/Image'
 import Button from '../../common/Button'
 import Text from '../../common/Text'
 import isObjectEmpty from '../../../utils/isObjectEmpty'
+import { selectedTrackState } from '../../../state/selectedTrack'
 
-export default function TrackCard({ data }) {
+const TRACK_CARD_TYPE = {
+	unselected: "normal",
+	selected: "selected"
+}
+
+const SELECT_BUTTON = ""
+const IMG_PLAY_BUTTON = "./playbutton.png"
+const IMG_DESELECT_BUTTON = "./remove.png"
+const IMG_PLAY_ALT = "Select Button"
+const IMG_DESELECT_ALT = "Deselect Button"
+const IMG_PLAY_CLASS = "play-button"
+
+export default function TrackCard({ type, data }) {
 
 	const [track, setTrack] = useState({})
+	const [selectedTrack, setSelectedTrack] = useRecoilState(selectedTrackState)
 
-	const SELECT_BUTTON = ""
-	const IMG_PLAY_BUTTON = "./playbutton.png"
-	const IMG_PLAY_ALT = "Play Button"
-	const IMG_PLAY_CLASS = "play-button"
 	const playButton = {
 		imgUrl: IMG_PLAY_BUTTON,
 		imgAlt: IMG_PLAY_ALT,
 		imgClass: IMG_PLAY_CLASS
 	}
+	const deselectButton = {
+		imgUrl: IMG_DESELECT_BUTTON,
+		imgAlt: IMG_DESELECT_ALT,
+		imgClass: IMG_PLAY_CLASS
+	}
+
+	const isSelected = () => {
+		return type === TRACK_CARD_TYPE.selected
+	}
+
+	const checkItemToDeselect = (item) => {
+		return item.uri !== track.uri
+	}
 
 	const handleSelectButtonClick = () => {
-		window.location.href = track.url
+		// window.location.href = track.url
+		if (!isSelected()) {
+			// Select Item
+			let newSelectedTrack = [...selectedTrack]
+			newSelectedTrack.push(data)
+			setSelectedTrack(newSelectedTrack)
+		} else {
+			// Deselect Item
+			let newSelectedTrack = selectedTrack.filter(checkItemToDeselect)
+			setSelectedTrack(newSelectedTrack)
+		}
 	}
 
 	const renderArtists = (artists) => {
@@ -42,7 +76,8 @@ export default function TrackCard({ data }) {
 				title: data.trackTitle,
 				artists: data.artistName,
 				album: data.albumName,
-				url: data.spotifyUrl
+				url: data.spotifyUrl,
+				uri: data.uri
 			})
 		}
 	}, [data])
@@ -53,7 +88,11 @@ export default function TrackCard({ data }) {
 			<div className="image-wrapper">
 				<Image imgUrl={track.imgUrl} imgAlt={track.altAlbum} imgClass="albumImage" />
 				<div className="button-wrapper">
-					<Button primary img={playButton} text={SELECT_BUTTON} handleClick={handleSelectButtonClick} />
+					{!isSelected() ?
+						<Button primary img={playButton} text={SELECT_BUTTON} handleClick={handleSelectButtonClick} />
+					:
+						<Button secondary img={deselectButton} text={SELECT_BUTTON} handleClick={handleSelectButtonClick} />
+					}
 				</div>
 			</div>
 			<div className="detail-container">

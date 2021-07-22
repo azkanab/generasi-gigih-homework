@@ -25,6 +25,7 @@ export function getSearchTracks(params, token) {
 
             tracks.push({
                 id: data.id,
+                uri: data.uri,
                 imgUrl: image.url,
                 trackTitle: data.name,
                 artistName: artists,
@@ -32,6 +33,8 @@ export function getSearchTracks(params, token) {
                 spotifyUrl: data.external_urls.spotify
             })
         })
+
+        console.log(tracks)
 
         return tracks
 	}
