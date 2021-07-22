@@ -34,6 +34,7 @@ export function getRecommendedTracks(token) {
 
             tracks.push({
                 id: data.id,
+                uri: data.uri,
                 imgUrl: image.url,
                 trackTitle: data.name,
                 artistName: artists,

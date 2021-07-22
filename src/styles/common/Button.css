@@ -5,3 +5,11 @@
 .button-primary:hover {
     background-color: #15863d;
 }
+
+.button-secondary {
+    background-color: #F03700;
+}
+
+.button-secondary:hover {
+    background-color: #c92e00;
+}
