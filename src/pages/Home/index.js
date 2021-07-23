@@ -12,6 +12,7 @@ import { getSelectedTrackState } from '../../state/selectedTrack'
 import { getUser } from '../../data/spotify/user-api-call'
 import isArrayEmpty from '../../utils/isArrayEmpty'
 import getGreeting from '../../utils/getGreeting'
+import isObjectEmpty from '../../utils/isObjectEmpty'
 import { tokenState } from '../../state/auth/token'
 import { userState } from '../../state/user'
 import '../../styles/Home/Home.css'
@@ -121,6 +122,9 @@ export default function Home() {
     }
 
     useEffect(() => {
+        if (isObjectEmpty(token)) {
+            history.push("/login")
+        }
         document.title = 'Spotifi | Dashboard';
         loaderContext.setIsFetching(true)
         fetchUser()
