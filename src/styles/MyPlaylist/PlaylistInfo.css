@@ -1,0 +1,9 @@
+.playlist-info-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.playlist-info-text-wrapper {
+    margin-left: 30px;
+}

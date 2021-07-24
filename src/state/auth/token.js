@@ -10,7 +10,7 @@ export const tokenState = atom({
 })
 
 export const myTokenState = selector({
-    key: 'restoNameState',
+    key: 'myTokenState',
     get: ({get}) => {
         const token = get(tokenState)
         return token

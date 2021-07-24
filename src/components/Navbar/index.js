@@ -10,7 +10,7 @@ import isObjectEmpty from '../../utils/isObjectEmpty'
 export default function Navbar() {
     const user = useRecoilValue(getUserState)
     const token = useRecoilValue(myTokenState)
-    const LOGO_IMG_URL = './spotify.png'
+    const LOGO_IMG_URL = '/spotify.png'
     const LOGO_TEXT = 'Spotifi'
     const location = useLocation()
     const history = useHistory()

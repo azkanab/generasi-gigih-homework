@@ -5,7 +5,7 @@ const axios = require('axios');
 
 const GET_SONG_URL = 'https://gist.githubusercontent.com/aryapradipta9/e6492383477803b233916e01f36d5465/raw/66942c739d66d3774303f84071696aa865a07077/single-sample.json'
 const IMAGE_HEIGHT = 300 /* Choices: 640, 300, 64 */
-const BASIC_IMG_URL = '../public/smiley.png'
+const BASIC_IMG_URL = '/smiley.png'
 
 function findSmallImage(images) {
     return images.find(image => { return image.height === IMAGE_HEIGHT }) || BASIC_IMG_URL

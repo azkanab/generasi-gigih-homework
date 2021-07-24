@@ -144,7 +144,7 @@ export default function Home() {
         if (!isObjectEmpty(user)) {
             setGreetingWord(`${getGreeting()}, ${user.name}!`)
         }
-        document.title = 'Spotifi | Dashboard';
+        document.title = 'Spotifi | Home';
         loaderContext.setIsFetching(true)
         fetchUser()
         fetchRecommendation()

@@ -13,8 +13,8 @@ const TRACK_CARD_TYPE = {
 }
 
 const SELECT_BUTTON = ""
-const IMG_PLAY_BUTTON = "./playbutton.png"
-const IMG_DESELECT_BUTTON = "./remove.png"
+const IMG_PLAY_BUTTON = "/playbutton.png"
+const IMG_DESELECT_BUTTON = "/remove.png"
 const IMG_PLAY_ALT = "Select Button"
 const IMG_DESELECT_ALT = "Deselect Button"
 const IMG_PLAY_CLASS = "play-button"

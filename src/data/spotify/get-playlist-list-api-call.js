@@ -6,7 +6,7 @@ const BASE_URL = `https://api.spotify.com/v1/me/playlists`
 
 const getImage = (images) => {
     if (isArrayEmpty(images)) {
-        return './unknown_playlist.png'
+        return '/unknown_playlist.png'
     } else {
         return images[0].url
     }

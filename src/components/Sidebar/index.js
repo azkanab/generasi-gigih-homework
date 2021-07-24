@@ -9,7 +9,7 @@ import '../../styles/Sidebar/Sidebar.css'
 
 export default function Sidebar({ handleModal }) {
     const token = useRecoilValue(myTokenState)
-    const LOGO_IMG_URL = './spotify.png'
+    const LOGO_IMG_URL = '/spotify.png'
     const LOGO_TEXT = 'Spotifi'
     const location = useLocation()
     const history = useHistory()
@@ -26,6 +26,10 @@ export default function Sidebar({ handleModal }) {
         return location.pathname.startsWith('/my-playlist')
     }
 
+    const isPlaylistList = () => {
+        return location.pathname === '/my-playlist'
+    }
+
     const handleHomeClick = () => {
         if (isObjectEmpty(token)) {
             history.push("/login")
@@ -39,7 +43,7 @@ export default function Sidebar({ handleModal }) {
     const handlePlaylistClick = () => {
         if (isObjectEmpty(token)) {
             history.push("/login")
-        } else if (isPlaylist()) {
+        } else if (isPlaylistList()) {
             history.go(0)
         } else {
             history.push("/my-playlist")
@@ -58,19 +62,19 @@ export default function Sidebar({ handleModal }) {
         id: 1,
         active: isHome(),
         handleOnClick: () => handleHomeClick(),
-        img: './home.png',
+        img: '/home.png',
         text: 'Home'
     }, {
         id: 2,
         active: isPlaylist(),
         handleOnClick: () => handlePlaylistClick(),
-        img: './playlist.png',
+        img: '/playlist.png',
         text: 'My Playlist'
     }, {
         id: 3,
         active: false,
         handleOnClick: () => handleCreateClick(),
-        img: './add.png',
+        img: '/add.png',
         text: 'Create Playlist'
     }]
 

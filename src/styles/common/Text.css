@@ -71,6 +71,36 @@ p {
 	font-size: 16px;
 }
 
+.playlist-detail {
+	font-family: 'Circular-Medium';
+	font-size: 14px;
+	color: white;
+	letter-spacing: 5px;
+}
+
+.playlist-detail-title {
+	font-family: 'Circular-Bold';
+	font-size: 32px;
+	color: white;
+}
+
+.playlist-detail-description {
+	font-family: 'Circular-Regular';
+	font-size: 16px;
+	color: white;
+	margin-top: 20px;
+}
+
+.table-track-title {
+	font-family: 'Circular-Medium';
+	font-size: 16px;
+}
+
+.table-track-album {
+	font-family: 'Circular-Regular';
+	font-size: 16px;
+}
+
 @media screen and (max-width: 375px) {
 	.main-title {
 	  margin-left: 12.5px;

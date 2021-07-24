@@ -21,7 +21,6 @@ export default function AddToPlaylist({ handleClose, data }) {
     const [user, setUser] = useRecoilState(userState)
     /* eslint-enable */
     const [selectedPlaylist, setSelectedPlaylist] = useState("")
-    const [isSuccess, setIsSuccess] = useState(false)
     const [playlists, setPlaylists] = useState([])
     const [statusLayout, setStatusLayout] = useState({})
     const loaderContext = useContext(KeyContext)
@@ -29,14 +28,14 @@ export default function AddToPlaylist({ handleClose, data }) {
     const INFO_TEXT = `You want to add ${data.trackTitle} to`
 
     const SuccessModalLayout = {
-        imgUrl: './success.png',
+        imgUrl: '/success.png',
         title: 'Success',
         description: `You have successfully add ${data.trackTitle} to the playlist`,
         handleClose: () => handleClose()
     }
 
     const FailedModalLayout = {
-        imgUrl: './failed.png',
+        imgUrl: '/failed.png',
         title: 'Failed',
         description: `You failed to add ${data.trackTitle} to the playlist`,
         handleClose: () => handleClose()
@@ -83,11 +82,10 @@ export default function AddToPlaylist({ handleClose, data }) {
             let response = await addItemToPlaylist(token, data.uri, selectedPlaylist)
             if (response) {
                 loaderContext.setIsFetching(false)
-                setIsSuccess(true)
                 setStatusLayout(SuccessModalLayout)
             }
         } catch (error) {
-            setStatusLayout({...FailedModalLayout, ['description']: `Error: ${error.message}`})
+            setStatusLayout({...FailedModalLayout, description: `Error: ${error.message}`})
             onFetchError(error)
         } 
     }
