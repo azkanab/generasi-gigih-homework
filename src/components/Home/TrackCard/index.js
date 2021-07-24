@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import { useRecoilState } from 'recoil'
+// import { useRecoilState } from 'recoil'
 import '../../../styles/Home/TrackCard.css'
 import Image from '../../common/Image'
 import Button from '../../common/Button'
 import Text from '../../common/Text'
 import isObjectEmpty from '../../../utils/isObjectEmpty'
-import { selectedTrackState } from '../../../state/selectedTrack'
+// import { selectedTrackState } from '../../../state/selectedTrack'
 
 const TRACK_CARD_TYPE = {
 	unselected: "normal",
@@ -19,10 +19,10 @@ const IMG_PLAY_ALT = "Select Button"
 const IMG_DESELECT_ALT = "Deselect Button"
 const IMG_PLAY_CLASS = "play-button"
 
-export default function TrackCard({ type, data }) {
+export default function TrackCard({ type, data, handleClick }) {
 
 	const [track, setTrack] = useState({})
-	const [selectedTrack, setSelectedTrack] = useRecoilState(selectedTrackState)
+	// const [selectedTrack, setSelectedTrack] = useRecoilState(selectedTrackState)
 
 	const playButton = {
 		imgUrl: IMG_PLAY_BUTTON,
@@ -39,21 +39,22 @@ export default function TrackCard({ type, data }) {
 		return type === TRACK_CARD_TYPE.selected
 	}
 
-	const checkItemToDeselect = (item) => {
-		return item.uri !== track.uri
-	}
+	// const checkItemToDeselect = (item) => {
+	// 	return item.uri !== track.uri
+	// }
 
 	const handleSelectButtonClick = () => {
 		// window.location.href = track.url
 		if (!isSelected()) {
 			// Select Item
-			let newSelectedTrack = [...selectedTrack]
-			newSelectedTrack.push(data)
-			setSelectedTrack(newSelectedTrack)
+			// let newSelectedTrack = [...selectedTrack]
+			// newSelectedTrack.push(data)
+			// setSelectedTrack(newSelectedTrack)
+			handleClick(data)
 		} else {
 			// Deselect Item
-			let newSelectedTrack = selectedTrack.filter(checkItemToDeselect)
-			setSelectedTrack(newSelectedTrack)
+			// let newSelectedTrack = selectedTrack.filter(checkItemToDeselect)
+			// setSelectedTrack(newSelectedTrack)
 		}
 	}
 

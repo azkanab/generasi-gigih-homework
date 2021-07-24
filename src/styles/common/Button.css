@@ -13,3 +13,13 @@
 .button-secondary:hover {
     background-color: #c92e00;
 }
+
+.button-tertiary {
+    color: #1DB954 !important;
+    background-color: white !important;
+}
+
+.button-tertiary:hover {
+    color: #15863d !important;
+    background-color: #ebebeb !important;
+}

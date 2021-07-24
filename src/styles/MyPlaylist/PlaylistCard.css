@@ -1,0 +1,46 @@
+.playlist-card-wrapper {
+	width: auto;
+	background-color: hsla(0,0%,50%,.1);
+	padding: 0px;
+	border-radius: 10px;
+	color: white;
+	max-width: 200px;
+	display: flex;
+	flex-direction: column;
+}
+
+.playlist-card-wrapper:hover {
+	background-color: hsla(0,0%,80%,.1);
+}
+
+.playlist-card-detail-container {
+	padding: 15px;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.playlist-card-image-wrapper {
+	height: fit-content;
+	width: fit-content;
+	position: relative;
+}
+
+@media screen and (max-width: 760px) {
+	.playlist-card-wrapper {
+	  max-width: calc(32.6% - 12.5px);
+	}
+}
+
+@media screen and (max-width: 660px) {
+	.playlist-card-wrapper {
+	  max-width: calc(50% - 12.5px);
+	}
+}
+
+@media screen and (max-width: 375px) {
+	.playlist-card-wrapper {
+	  margin: 12.5px;
+	  max-width: calc(50% - 25px);
+	}
+}

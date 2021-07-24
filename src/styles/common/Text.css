@@ -44,6 +44,33 @@ p {
 	margin-bottom: 0px;
 }
 
+.sidebar-menu-text {
+	font-family: 'Circular-Medium';
+	color: white;
+	font-size: 16px;
+	line-height: 20px;
+	margin-left: 13px;
+	margin-bottom: 0px;
+}
+
+.create-playlist-title {
+	font-family: 'Circular-Bold';
+	color: black;
+	font-size: 24px;
+	margin-bottom: 30px;
+}
+
+.success-title-text {
+	font-family: 'Circular-Bold';
+	font-size: 22px;
+	margin-bottom: 10px;
+}
+
+.success-info-text {
+	font-family: 'Circular-Regular';
+	font-size: 16px;
+}
+
 @media screen and (max-width: 375px) {
 	.main-title {
 	  margin-left: 12.5px;

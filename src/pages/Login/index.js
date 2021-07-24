@@ -18,7 +18,7 @@ export default function Login() {
         client_id: process.env.REACT_APP_SPOTIFY_KEY,
         response_type: "token",
         redirect_uri: callback_url,
-        scope: "playlist-modify-private"
+        scope: "playlist-modify-private playlist-read-private"
     }
     const FULL_URL = getFullUrl(LOGIN_BASE_URL, PARAMS)
 
