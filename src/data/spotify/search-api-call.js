@@ -1,5 +1,5 @@
 import getFullUrl from '../../utils/getFullUrl';
-import getSmallImage from '../../utils/getSmallImage';
+import getImageBasedOnSize from '../../utils/getImageBasedOnSize';
 
 const axios = require('axios');
 
@@ -17,7 +17,7 @@ export function getSearchTracks(params, token) {
         let tracks = []
 
         result.forEach(data => {
-            let image = getSmallImage(data.album.images)
+            let image = getImageBasedOnSize(data.album.images, 300)
             let artists = []
             data.artists.forEach(artist => {
                 artists.push(artist.name)
@@ -33,8 +33,6 @@ export function getSearchTracks(params, token) {
                 spotifyUrl: data.external_urls.spotify
             })
         })
-
-        console.log(tracks)
 
         return tracks
 	}

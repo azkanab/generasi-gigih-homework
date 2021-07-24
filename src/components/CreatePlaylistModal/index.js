@@ -75,7 +75,7 @@ export default function CreatePlaylistModal({ handleClose }) {
     }
 
     const SuccessModalLayout = {
-        imgUrl: './success.png',
+        imgUrl: '/success.png',
         title: 'Success',
         description: 'You have successfully created a playlist',
         handleClose: () => handleCloseSuccessModal()

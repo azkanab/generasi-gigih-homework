@@ -1,0 +1,36 @@
+.list-playlist {
+    border-collapse: collapse;
+    width: 100%;
+    color: white;
+}
+
+th {
+    font-family: 'Circular-Bold';
+    letter-spacing: 5px;
+    font-size: 14px;
+    text-align: left;
+    padding: 10px 15px;
+}
+
+td {
+    font-family: 'Circular-Regular';
+    font-size: 16px;
+    padding: 10px 15px;
+}
+
+.table-row-track {
+    cursor: pointer;
+}
+
+.table-row-track:hover {
+    background-color: hsla(0,0%,80%,.1);
+}
+
+.title-table-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.table-text-wrapper {
+    margin-left: 20px;
+}

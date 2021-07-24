@@ -59,13 +59,14 @@ export default function MyPlaylist() {
     const renderPlaylistCard = () => {
         return (
             !isArrayEmpty(playlists) && playlists.map(playlist => (
-                <PlaylistCard data={playlist} key={playlist.id} />
+                <PlaylistCard data={playlist} key={playlist.playlistId} />
             ))
         )
     }
 
     useEffect(() => {
         loaderContext.setIsFetching(true)
+        document.title = 'Spotifi | My Playlist';
         fetchPlaylist()
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 

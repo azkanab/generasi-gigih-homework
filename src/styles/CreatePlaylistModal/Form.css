@@ -18,7 +18,7 @@ input, textarea, select {
     margin-right: 0px;
     width: 100%;
     min-width: 0px;
-    border: 1px solid #adadad;
+    border: 1px solid #ccc;
     box-sizing: border-box;
 }
 
