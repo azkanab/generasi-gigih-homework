@@ -13,7 +13,12 @@
 
 .logo-img {
     width: 25px;
-    height: auto;
+    height: 25px;
+}
+
+.sidebar-menu-logo {
+	width: auto;
+	height: 20px;
 }
 
 .play-button {
@@ -28,4 +33,10 @@
 	left: 0;
 	clip-path: circle();
 	margin-top: -5.5px;
+}
+
+.success-img {
+	width: 200px;
+	height: auto;
+	margin-bottom: 20px;
 }

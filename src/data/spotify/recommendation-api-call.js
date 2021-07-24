@@ -17,7 +17,7 @@ export function getRecommendedTracks(token) {
     let fullUrl = getFullUrl(BASE_URL, params)
 
     const HEADER = {
-        Authorization: token.token_type + ' ' + token.access_token
+        Authorization: `${token.token_type} ${token.access_token}`
     }
 
     function onFetchSuccessful(response) {

@@ -12,15 +12,14 @@ export default function Navbar() {
     const token = useRecoilValue(myTokenState)
     const LOGO_IMG_URL = './spotify.png'
     const LOGO_TEXT = 'Spotifi'
-    let location = useLocation()
-    let history = useHistory()
+    const location = useLocation()
+    const history = useHistory()
 
-    const hideProfile = () => {
+    const isLogin = () => {
         return location.pathname === '/login'
     }
 
     const handleLogoClick = () => {
-        console.log("click")
         if (isObjectEmpty(token)) {
             history.push("/login")
         } else {
@@ -29,12 +28,12 @@ export default function Navbar() {
     }
 
     return (
-        <div className="header">
-            <div className="logo" onClick={handleLogoClick}>
+        <div className={isLogin() ? 'header' : 'header home'}>
+            {isLogin() && <div className="logo" onClick={handleLogoClick}>
                 <Image imgUrl={LOGO_IMG_URL} imgClass="logo-img" />
                 <Text text={LOGO_TEXT} textClass="header-logo-text" />
-            </div>
-            {!hideProfile() &&
+            </div>}
+            {!isLogin() &&
                 <a href={user.url} className="profile">
                     <Image imgUrl={user.imgUrl} imgAlt='User Picture' imgClass="profile-img" />
                     <p>{user.username}</p>

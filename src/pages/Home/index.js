@@ -1,14 +1,15 @@
 import { useEffect, useState, useContext } from 'react'
-import { useRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilState } from 'recoil'
 import { useHistory } from 'react-router-dom'
 import { KeyContext } from '..'
 import TrackCard from '../../components/Home/TrackCard'
-import Form from '../../components/Home/Form'
+import SearchForm from '../../components/Home/SearchForm'
 import Text from '../../components/common/Text'
-import SelectedTracks from '../../components/Home/SelectedTracks'
+// import SelectedTracks from '../../components/Home/SelectedTracks'
+import AddToPlaylist from '../../components/Home/AddToPlaylist'
 import { getSearchTracks } from '../../data/spotify/search-api-call'
 import { getRecommendedTracks } from '../../data/spotify/recommendation-api-call'
-import { getSelectedTrackState } from '../../state/selectedTrack'
+// import { getSelectedTrackState } from '../../state/selectedTrack'
 import { getUser } from '../../data/spotify/user-api-call'
 import isArrayEmpty from '../../utils/isArrayEmpty'
 import getGreeting from '../../utils/getGreeting'
@@ -23,21 +24,33 @@ export default function Home() {
     const [token, setToken] = useRecoilState(tokenState)
     const [user, setUser] = useRecoilState(userState)
     const [tracks, setTracks] = useState([])
-    const [displayedTracks, setDisplayedTracks] = useState([])
+    // const [displayedTracks, setDisplayedTracks] = useState([])
+    const [selectedTrack, setSelectedTrack] = useState({})
+    const [greetingWord, setGreetingWord] = useState(getGreeting())
     const [params, setParams] = useState({
         q: '',
         type: 'track',
         limit: 50,
         offset: 0
     })
-    const selectedTrack = useRecoilValue(getSelectedTrackState)
-    const GREETING_WORD = getGreeting()+', '+user.name+'!'
+    // const selectedTrack = useRecoilValue(getSelectedTrackState)
     const history = useHistory()
+    const [showAddTrackModal, setShowAddTrackModal] = useState(false)
+
+    const handleOpenAddTrackModal = (data) => {
+        setSelectedTrack(data)
+        setShowAddTrackModal(true)
+    }
+
+    const handleCloseAddTrackModal = () => {
+        setSelectedTrack({})
+        setShowAddTrackModal(false)
+    }
 
     const renderTrackCard = () => {
         return (
-            !isArrayEmpty(displayedTracks) ? displayedTracks.map(track => (
-                <TrackCard key={track.id} type="normal" data={track} />
+            !isArrayEmpty(tracks) ? tracks.map(track => (
+                <TrackCard key={track.id} type="normal" data={track} handleClick={handleOpenAddTrackModal} />
              )) : <span>Loading...</span>
         )
     }
@@ -58,9 +71,9 @@ export default function Home() {
         }
     }
 
-    const mySelectedTracks = (track) => {
-        return selectedTrack.some(e => e.uri === track.uri)
-    }
+    // const mySelectedTracks = (track) => {
+    //     return selectedTrack.some(e => e.uri === track.uri)
+    // }
 
     const onFetchError = (error) => {
         if (error.response) {
@@ -90,7 +103,7 @@ export default function Home() {
         try {
             let response = await getSearchTracks(params, token);
             setTracks(response)
-            setDisplayedTracks(response.filter(data => !mySelectedTracks(data)))
+            // setDisplayedTracks(response.filter(data => !mySelectedTracks(data)))
             if (response) {
                 loaderContext.setIsFetching(false)
             }
@@ -103,6 +116,9 @@ export default function Home() {
         try {
             let response = await getUser(token)
             setUser(response)
+            if (!isObjectEmpty(user)) {
+                setGreetingWord(`${getGreeting()}, ${user.name}!`)
+            }
         } catch (error) {
             onFetchError(error)
         }
@@ -112,7 +128,7 @@ export default function Home() {
         try {
             let response = await getRecommendedTracks(token)
             setTracks(response)
-            setDisplayedTracks(response.filter(data => !mySelectedTracks(data)))
+            // setDisplayedTracks(response.filter(data => !mySelectedTracks(data)))
             if (response) {
                 loaderContext.setIsFetching(false)
             }
@@ -125,25 +141,29 @@ export default function Home() {
         if (isObjectEmpty(token)) {
             history.push("/login")
         }
+        if (!isObjectEmpty(user)) {
+            setGreetingWord(`${getGreeting()}, ${user.name}!`)
+        }
         document.title = 'Spotifi | Dashboard';
         loaderContext.setIsFetching(true)
         fetchUser()
         fetchRecommendation()
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-    useEffect(() => {
-        let newDisplayedTracks = tracks.filter(data => !mySelectedTracks(data))
-        setDisplayedTracks(newDisplayedTracks)
-    }, [selectedTrack]) // eslint-disable-line react-hooks/exhaustive-deps
+    // useEffect(() => {
+    //     let newDisplayedTracks = tracks.filter(data => !mySelectedTracks(data))
+    //     setDisplayedTracks(newDisplayedTracks)
+    // }, [selectedTrack]) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <div>
-            <Text textClass="main-title" text={GREETING_WORD} />
-            <Form handleChange={handleSearchChange} handleClick={handleSearchClick} />
+            {showAddTrackModal && <AddToPlaylist data={selectedTrack} handleClose={handleCloseAddTrackModal} />}
+            <Text textClass="main-title" text={greetingWord} />
+            <SearchForm handleChange={handleSearchChange} handleClick={handleSearchClick} />
             <div className="trackCard-wrapper">
                 <div>
                     <div className="trackCard-container">
-                        <SelectedTracks />
+                        {/* <SelectedTracks /> */}
                         {renderTrackCard()}
                     </div>
                 </div>
