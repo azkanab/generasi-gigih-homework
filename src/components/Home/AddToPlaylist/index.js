@@ -56,8 +56,12 @@ export default function AddToPlaylist({ handleClose, data }) {
                     loaderContext.setIsFetching(false)
                     history.push('/login')
                     break;
+                case 403: // forbidden
+                    loaderContext.setIsFetching(false)
+                    break;
                 default:
-                    console.log(`Error: ${error.message}`)
+                    setStatusLayout({...FailedModalLayout, description: `Error: ${error.message}`})
+                    loaderContext.setIsFetching(false)
                     break;
             }
         } else {
@@ -85,7 +89,6 @@ export default function AddToPlaylist({ handleClose, data }) {
                 setStatusLayout(SuccessModalLayout)
             }
         } catch (error) {
-            setStatusLayout({...FailedModalLayout, description: `Error: ${error.message}`})
             onFetchError(error)
         } 
     }

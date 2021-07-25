@@ -9,6 +9,7 @@ import { createPlaylist } from '../../data/spotify/create-playlist-api-call'
 import { useContext } from 'react'
 import { KeyContext } from '../../pages'
 import { useHistory, useLocation } from 'react-router-dom'
+import isObjectEmpty from '../../utils/isObjectEmpty'
 
 export const InputContext = React.createContext('input')
 
@@ -20,9 +21,23 @@ export default function CreatePlaylistModal({ handleClose }) {
         name: '',
         description: ''
     })
-    const [success, setSuccess] = useState(false)
+    const [statusLayout, setStatusLayout] = useState({})
     const history = useHistory()
     const location = useLocation()
+
+    const SuccessModalLayout = {
+        imgUrl: '/success.png',
+        title: 'Success',
+        description: 'You have successfully created a playlist',
+        handleClose: () => handleCloseSuccessModal()
+    }
+
+    const FailedModalLayout = {
+        imgUrl: '/failed.png',
+        title: 'Failed',
+        description: `You failed to create a new playlist`,
+        handleClose: () => handleClose()
+    }
 
     const onFetchError = (error) => {
         if (error.response) {
@@ -39,8 +54,13 @@ export default function CreatePlaylistModal({ handleClose }) {
                     loaderContext.setIsFetching(false)
                     history.push('/login')
                     break;
+                case 403: // forbidden
+                    setStatusLayout({...FailedModalLayout, description: 'You are not allowed to create a new playlist'})
+                    loaderContext.setIsFetching(false)
+                    break;
                 default:
-                    console.log(`Error: ${error.message}`)
+                    setStatusLayout({...FailedModalLayout, description: `Error: ${error.message}`})
+                    loaderContext.setIsFetching(false)
                     break;
             }
         }
@@ -50,7 +70,7 @@ export default function CreatePlaylistModal({ handleClose }) {
         try {
             let response = await createPlaylist(token, user.username, form)
             if (response.message === "SUCCESS") {
-                setSuccess(true)
+                setStatusLayout(SuccessModalLayout)
                 loaderContext.setIsFetching(false)
             }
         } catch (error) {
@@ -71,25 +91,17 @@ export default function CreatePlaylistModal({ handleClose }) {
 
     const handleCloseSuccessModal = () => {
         handleClose()
-        setSuccess(false)
         if (location.pathname === '/my-playlist') {
             history.go(0)
         } else {
             history.push('/my-playlist')
         }
     }
-
-    const SuccessModalLayout = {
-        imgUrl: '/success.png',
-        title: 'Success',
-        description: 'You have successfully created a playlist',
-        handleClose: () => handleCloseSuccessModal()
-    }
     
     return (
         <div className="create-playlist-modal">
             <div className="modal-content">
-                {!success ?
+                {isObjectEmpty(statusLayout) ?
                 <InputContext.Provider value={{
                     data: form,
                     handleChange: (e) => handleInputChange(e)
@@ -97,7 +109,7 @@ export default function CreatePlaylistModal({ handleClose }) {
                     <ModalContent handleSubmit={handleFormSubmit} handleClose={handleClose}  />
                 </InputContext.Provider>
                 :
-                <SuccessModalContent layout={SuccessModalLayout} />}
+                <SuccessModalContent layout={statusLayout} />}
             </div>
         </div>
     )

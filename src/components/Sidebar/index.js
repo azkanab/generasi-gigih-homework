@@ -100,6 +100,9 @@ export default function Sidebar({ show, handleModal, handleCloseSidebar }) {
                 <div className="sidebar-menu-wrapper">
                     {renderSideMenu()}
                 </div>
+                <div className="copyright-wrapper">
+                    <Text text="© Azka N. Mumtaz" textClass="copyright-text" />
+                </div>
             </div>
             {show && <div className="sidebar-layer" onClick={handleCloseSidebar} />}
         </div>

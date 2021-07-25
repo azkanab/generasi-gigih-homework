@@ -109,6 +109,12 @@ p {
 	text-align: center;
 }
 
+.copyright-text {
+	font-family: 'Circular-Medium';
+	color: white;
+	font-size: 12px;
+}
+
 @media screen and (max-width: 450px) {
 	.playlist-detail-title {
 		font-size: 24px;

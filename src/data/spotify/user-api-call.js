@@ -9,6 +9,7 @@ export function getUser(token) {
     }
 
     function onFetchSuccessful(response) {
+        console.log(response)
         let data = response.data
         return ({
             name: data.display_name,

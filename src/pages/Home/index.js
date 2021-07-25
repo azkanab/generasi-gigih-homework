@@ -82,7 +82,12 @@ export default function Home() {
                     loaderContext.setIsFetching(false)
                     history.push('/login')
                     break;
+                case 403: // forbidden
+                    loaderContext.setIsFetching(false)
+                    alert('You are forbidden, please try to ask for a permission to the author of this program')
+                    break;
                 default:
+                    loaderContext.setIsFetching(false)
                     console.log(`Error: ${error.message}`)
                     break;
             }

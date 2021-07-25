@@ -36,6 +36,7 @@ export default function MyPlaylist() {
                     history.push('/login')
                     break;
                 default:
+                    loaderContext.setIsFetching(false)
                     console.log(`Error: ${error.message}`)
                     break;
             }
