@@ -112,8 +112,8 @@ export default function Home() {
         try {
             let response = await getUser(token)
             setUser(response)
-            if (!isObjectEmpty(user)) {
-                setGreetingWord(`${getGreeting()}, ${user.name}!`)
+            if (!isObjectEmpty(response)) {
+                setGreetingWord(`${getGreeting()}, ${response.name}!`)
             }
         } catch (error) {
             onFetchError(error)
