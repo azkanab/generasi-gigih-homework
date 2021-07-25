@@ -57,11 +57,11 @@ export default function AddToPlaylist({ handleClose, data }) {
                     history.push('/login')
                     break;
                 default:
-                    alert(`Error: ${error.message}`)
+                    console.log(`Error: ${error.message}`)
                     break;
             }
         } else {
-            alert(`Error: ${error}`)
+            console.log(`Error: ${error}`)
         }
     }
 

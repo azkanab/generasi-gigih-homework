@@ -40,7 +40,7 @@ export default function CreatePlaylistModal({ handleClose }) {
                     history.push('/login')
                     break;
                 default:
-                    alert(`Error: ${error.message}`)
+                    console.log(`Error: ${error.message}`)
                     break;
             }
         }

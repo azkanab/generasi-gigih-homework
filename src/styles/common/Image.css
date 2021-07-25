@@ -30,7 +30,7 @@
 	height: 135%;
 	position: absolute;
 	top: 0;
-	left: 0;
+	left: -5px;
 	clip-path: circle();
 	margin-top: -5.5px;
 }
