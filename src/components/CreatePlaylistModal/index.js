@@ -3,8 +3,7 @@ import { useRecoilState } from 'recoil'
 import { userState } from '../../state/user'
 import { tokenState } from '../../state/auth/token'
 import '../../styles/CreatePlaylistModal/Modal.css'
-import Text from '../common/Text'
-import Form from './Form'
+import ModalContent from './ModalContent'
 import SuccessModalContent from './SuccessModalContent'
 import { createPlaylist } from '../../data/spotify/create-playlist-api-call'
 import { useContext } from 'react'
@@ -85,15 +84,12 @@ export default function CreatePlaylistModal({ handleClose }) {
         <div className="create-playlist-modal">
             <div className="modal-content">
                 {!success ?
-                <div>
-                    <Text text="Create Playlist" textClass="create-playlist-title" />
-                    <InputContext.Provider value={{
-                        data: form,
-                        handleChange: (e) => handleInputChange(e)
-                    }}>
-                        <Form handleSubmit={handleFormSubmit} handleClose={handleClose} />
-                    </InputContext.Provider>
-                </div>
+                <InputContext.Provider value={{
+                    data: form,
+                    handleChange: (e) => handleInputChange(e)
+                }}>
+                    <ModalContent handleSubmit={handleFormSubmit} handleClose={handleClose}  />
+                </InputContext.Provider>
                 :
                 <SuccessModalContent layout={SuccessModalLayout} />}
             </div>
