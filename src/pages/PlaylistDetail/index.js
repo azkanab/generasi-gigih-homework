@@ -67,6 +67,7 @@ export default function PlaylistDetail() {
     }
 
     useEffect(() => {
+        window.scrollTo(0,0)
         loaderContext.setIsFetching(true)
         fetchPlaylistDetail()
     }, []) // eslint-disable-line react-hooks/exhaustive-deps

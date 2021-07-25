@@ -12,11 +12,7 @@ export const KeyContext = React.createContext('loading')
 export default function Main() {
     const [isFetching, setIsFetching] = useState(true)
     const [showCreateModal, setShowCreateModal] = useState(false)
-    const location = window.location.pathname
-
-    const isLoginPage = () => {
-        return location === '/login'
-    }
+    const [showSideBarMobile, setShowSideBarMobile] = useState(false)
 
     const handleOpenCreatePlaylistModal = () => {
         return setShowCreateModal(true)
@@ -24,6 +20,14 @@ export default function Main() {
 
     const handleCloseCreatePlaylistModal = () => {
         return setShowCreateModal(false)
+    }
+
+    const handleOpenSideBarMobile = () => {
+        return setShowSideBarMobile(true)
+    }
+
+    const handleCloseSideBarMobile = () => {
+        return setShowSideBarMobile(false)
     }
 
     return (
@@ -34,11 +38,9 @@ export default function Main() {
             <Router>
                 {isFetching && <Loader />}
                 {showCreateModal && <CreatePlaylistModal handleClose={handleCloseCreatePlaylistModal} />}
-                <Sidebar handleModal={handleOpenCreatePlaylistModal} />
-                <div className={isLoginPage() ? 'page-container' : 'page-container-home'}>
-                    <Navbar />
-                    <AppRouter />
-                </div>
+                <Sidebar show={showSideBarMobile} handleModal={handleOpenCreatePlaylistModal} handleCloseSidebar={handleCloseSideBarMobile} />
+                <Navbar openSideBar={handleOpenSideBarMobile}  />
+                <AppRouter />
             </Router>
         </KeyContext.Provider>
     )

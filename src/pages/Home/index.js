@@ -146,6 +146,7 @@ export default function Home() {
         }
         document.title = 'Spotifi | Home';
         loaderContext.setIsFetching(true)
+        window.scrollTo(0,0)
         fetchUser()
         fetchRecommendation()
     }, []) // eslint-disable-line react-hooks/exhaustive-deps

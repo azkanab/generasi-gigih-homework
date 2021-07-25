@@ -1,6 +1,6 @@
 .loader-container {
     position: fixed;
-    z-index: 2;
+    z-index: 5;
     background-color: #191414;
     opacity: 0.9;
     top: 0;

@@ -7,7 +7,7 @@ import Text from "../common/Text"
 import SideMenu from "./SideMenu"
 import '../../styles/Sidebar/Sidebar.css'
 
-export default function Sidebar({ handleModal }) {
+export default function Sidebar({ show, handleModal, handleCloseSidebar }) {
     const token = useRecoilValue(myTokenState)
     const LOGO_IMG_URL = '/spotify.png'
     const LOGO_TEXT = 'Spotifi'
@@ -38,6 +38,7 @@ export default function Sidebar({ handleModal }) {
         } else {
             history.push("/")
         }
+        handleCloseSidebar()
     }
 
     const handlePlaylistClick = () => {
@@ -48,6 +49,7 @@ export default function Sidebar({ handleModal }) {
         } else {
             history.push("/my-playlist")
         }
+        handleCloseSidebar()
     }
 
     const handleCreateClick = () => {
@@ -56,6 +58,7 @@ export default function Sidebar({ handleModal }) {
         } else {
             handleModal()
         }
+        handleCloseSidebar()
     }
 
     const sideMenus = [{
@@ -88,14 +91,17 @@ export default function Sidebar({ handleModal }) {
 
     return (
         !hideSidebar() &&
-        <div className="sidebar-container">
-            <div className="logo-sidebar" onClick={handleHomeClick}>
-                <Image imgUrl={LOGO_IMG_URL} imgClass="logo-img" />
-                <Text text={LOGO_TEXT} textClass="header-logo-text" />
+        <div>
+            <div className={show ? 'sidebar-container open' : 'sidebar-container'}>
+                <div className="logo-sidebar" onClick={handleHomeClick}>
+                    <Image imgUrl={LOGO_IMG_URL} imgClass="logo-img" />
+                    <Text text={LOGO_TEXT} textClass="header-logo-text" />
+                </div>
+                <div className="sidebar-menu-wrapper">
+                    {renderSideMenu()}
+                </div>
             </div>
-            <div className="sidebar-menu-wrapper">
-                {renderSideMenu()}
-            </div>
+            {show && <div className="sidebar-layer" onClick={handleCloseSidebar} />}
         </div>
     )
 }

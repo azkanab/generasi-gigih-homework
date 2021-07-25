@@ -24,7 +24,8 @@ export default function Login() {
 
     useEffect(() => {
         document.title = 'Spotifi | Login';
-        loaderContext.setIsFetching(false)
+        loaderContext.setIsFetching(false);
+        window.scrollTo(0,0)
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (

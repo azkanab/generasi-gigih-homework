@@ -3,6 +3,7 @@ import Image from '../../common/Image'
 import Text from '../../common/Text'
 import { changeDateFormat } from '../../../utils/changeDateFormat'
 import { msToTime } from '../../../utils/msToTime'
+import isArrayEmpty from '../../../utils/isArrayEmpty'
 
 export default function PlaylistTracks({ tracks }) {
     const getArtistText = (artists) => {
@@ -33,25 +34,29 @@ export default function PlaylistTracks({ tracks }) {
                             </div>
                         </div>
                     </td>
-                    <td><Text text={track.albumName} textClass="table-track-album" /></td>
-                    <td>{changeDateFormat(track.date_added)}</td>
-                    <td>{msToTime(track.duration)}</td>
+                    <td className="hide-in-mobile"><Text text={track.albumName} textClass="table-track-album" /></td>
+                    <td className="hide-in-mobile">{changeDateFormat(track.date_added)}</td>
+                    <td className="hide-in-mobile">{msToTime(track.duration)}</td>
                 </tr>
             ))
         )
     }
+
     return (
-        <table className="list-playlist">
-            <tbody>
-                <tr>
-                    <th>#</th>
-                    <th>TITLE</th>
-                    <th>ALBUM</th>
-                    <th>DATE ADDED</th>
-                    <th>DURATION</th>
-                </tr>
-                {renderTracks()}
-            </tbody>
-        </table>
+        <div>
+            <table className="list-playlist">
+                <tbody>
+                    <tr>
+                        <th>#</th>
+                        <th>TITLE</th>
+                        <th className="hide-in-mobile">ALBUM</th>
+                        <th className="hide-in-mobile">DATE ADDED</th>
+                        <th className="hide-in-mobile">DURATION</th>
+                    </tr>
+                    {renderTracks()}
+                </tbody>
+            </table>
+            {tracks === undefined || isArrayEmpty(tracks) ? <Text text="You have no track in this playlist" textClass="have-no-track-info" /> : ''}
+        </div>
     )
 }
