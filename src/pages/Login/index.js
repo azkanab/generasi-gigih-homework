@@ -13,7 +13,7 @@ export default function Login() {
     const SPOTIFI_TITLE = 'Spotifi'
 
     const LOGIN_BASE_URL = "https://accounts.spotify.com/authorize?"
-    const callback_url = "http://localhost:3000/callback"
+    const callback_url = process.env.REACT_APP_REDIRECT_URI
     const PARAMS = {
         client_id: process.env.REACT_APP_SPOTIFY_KEY,
         response_type: "token",
