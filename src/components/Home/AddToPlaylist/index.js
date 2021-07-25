@@ -57,6 +57,7 @@ export default function AddToPlaylist({ handleClose, data }) {
                     history.push('/login')
                     break;
                 case 403: // forbidden
+                    setStatusLayout({...FailedModalLayout, description: 'You are not allowed to modify this playlist'})
                     loaderContext.setIsFetching(false)
                     break;
                 default:
