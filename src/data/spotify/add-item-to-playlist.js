@@ -12,12 +12,11 @@ export function addItemToPlaylist(token, song_uri, playlist_id) {
     }
 
     function onFetchSuccessful(response) {
-        return response
-        // return({
-        //     playlistID: response.data.id,
-        //     status: response.status,
-        //     message: "SUCCESS"
-        // })
+        return({
+            playlistID: response.data.id,
+            status: response.status,
+            message: "SUCCESS"
+        })
     }
 
     return axios.post(fullUrl, bodyParams, {

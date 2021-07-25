@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
-// import { useRecoilState } from 'recoil'
 import '../../../styles/Home/TrackCard.css'
 import Image from '../../common/Image'
 import Button from '../../common/Button'
 import Text from '../../common/Text'
 import isObjectEmpty from '../../../utils/isObjectEmpty'
-// import { selectedTrackState } from '../../../state/selectedTrack'
+import { getArtistText } from '../../../utils/getArtistText'
 
 const TRACK_CARD_TYPE = {
 	unselected: "normal",
@@ -22,7 +21,6 @@ const IMG_PLAY_CLASS = "play-button"
 export default function TrackCard({ type, data, handleClick }) {
 
 	const [track, setTrack] = useState({})
-	// const [selectedTrack, setSelectedTrack] = useRecoilState(selectedTrackState)
 
 	const playButton = {
 		imgUrl: IMG_PLAY_BUTTON,
@@ -39,34 +37,10 @@ export default function TrackCard({ type, data, handleClick }) {
 		return type === TRACK_CARD_TYPE.selected
 	}
 
-	// const checkItemToDeselect = (item) => {
-	// 	return item.uri !== track.uri
-	// }
-
 	const handleSelectButtonClick = () => {
-		// window.location.href = track.url
 		if (!isSelected()) {
-			// Select Item
-			// let newSelectedTrack = [...selectedTrack]
-			// newSelectedTrack.push(data)
-			// setSelectedTrack(newSelectedTrack)
 			handleClick(data)
-		} else {
-			// Deselect Item
-			// let newSelectedTrack = selectedTrack.filter(checkItemToDeselect)
-			// setSelectedTrack(newSelectedTrack)
 		}
-	}
-
-	const renderArtists = (artists) => {
-		return (
-			artists.map((artist, idx) => (
-				idx === artists.length-1 ?
-					<Text key={idx} textClass="artistText" text={artist} />
-				:
-					<Text key={idx} textClass="artistText" text={artist + ', '} />
-			))
-		)
 	}
 
 	useEffect(() => {
@@ -99,7 +73,7 @@ export default function TrackCard({ type, data, handleClick }) {
 			<div className="detail-container">
 				<div className="text-wrapper">
 					<Text textClass="title" text={track.title} />
-					{renderArtists(track.artists)}
+					<Text textClass="artistText" text={getArtistText(track.artists)} />
 					<Text textClass="albumText" text={track.album} />
 				</div>
 			</div>
