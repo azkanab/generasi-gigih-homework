@@ -18,6 +18,10 @@
   src: url('./fonts/CircularStd-Black.ttf') format('truetype');
 }
 
+a {
+  text-decoration: none;
+}
+
 * {
   margin: 0;
   padding: 0;
