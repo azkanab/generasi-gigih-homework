@@ -101,6 +101,24 @@ p {
 	font-size: 16px;
 }
 
+.have-no-track-info {
+	font-family: 'Circular-Medium';
+	color: white;
+	font-size: 16px;
+	margin-top: 15vh;
+	text-align: center;
+}
+
+@media screen and (max-width: 450px) {
+	.playlist-detail-title {
+		font-size: 24px;
+	}
+
+	.have-no-track-info {
+		margin-top: 10vh;
+	}
+}
+
 @media screen and (max-width: 375px) {
 	.main-title {
 	  margin-left: 12.5px;

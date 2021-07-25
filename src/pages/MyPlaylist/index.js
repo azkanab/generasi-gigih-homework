@@ -67,6 +67,7 @@ export default function MyPlaylist() {
     useEffect(() => {
         loaderContext.setIsFetching(true)
         document.title = 'Spotifi | My Playlist';
+        window.scrollTo(0,0)
         fetchPlaylist()
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 

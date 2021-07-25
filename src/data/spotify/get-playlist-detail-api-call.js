@@ -26,7 +26,6 @@ export function getPlaylistDetail(token, playlistID) {
         let tracks = []
 
         data.tracks.items.forEach((item) => {
-            console.log(response)
             let artist_list = []
             item.track.artists.forEach(artist => {
                 artist_list.push(artist.name)

@@ -20,6 +20,7 @@ input, textarea, select {
     min-width: 0px;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    background-color: white;
 }
 
 input:focus, textarea:focus, select:focus {
