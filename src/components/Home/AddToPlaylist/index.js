@@ -7,12 +7,11 @@ import { userState } from '../../../state/user'
 import '../../../styles/CreatePlaylistModal/Modal.css'
 import '../../../styles/CreatePlaylistModal/Form.css'
 import Text from '../../common/Text'
-import Button from '../../common/Button'
+import Form from './Form'
 import SuccessModalContent from '../../CreatePlaylistModal/SuccessModalContent'
 import { KeyContext } from '../../../pages'
 import { getPlaylistList } from '../../../data/spotify/get-playlist-list-api-call'
 import { addItemToPlaylist } from '../../../data/spotify/add-item-to-playlist'
-import isArrayEmpty from '../../../utils/isArrayEmpty'
 import isObjectEmpty from '../../../utils/isObjectEmpty'
 
 export default function AddToPlaylist({ handleClose, data }) {
@@ -107,6 +106,11 @@ export default function AddToPlaylist({ handleClose, data }) {
         }
     }
 
+    const selected = {
+        value: selectedPlaylist,
+        handleOnChange: (e) => handleOnSelectChange(e)
+    }
+
     useEffect(() => {
         fetchPlaylist()
         loaderContext.setIsFetching(true)
@@ -118,22 +122,7 @@ export default function AddToPlaylist({ handleClose, data }) {
                {isObjectEmpty(statusLayout) ? <div>
                     <Text text="Select your playlist" textClass="create-playlist-title" />
                     <Text text={INFO_TEXT} />
-                    <form onSubmit={handleAddButtonClick}>
-                        <div className="input-container">
-                            <select required value={selectedPlaylist} onChange={handleOnSelectChange}>
-                                <option value="">Select your playlist</option>
-                                {!isArrayEmpty(playlists) &&
-                                    playlists.map(playlist => (
-                                        <option key={playlist.playlistId} value={playlist.playlistId}>{playlist.name}</option>
-                                    ))
-                                }
-                            </select>
-                        </div>
-                        <div className="create-button-wrapper">
-                            <Button text="Cancel" handleClick={handleClose}  />
-                            <Button primary text="Add" type='submit' />
-                        </div>
-                    </form>
+                    <Form selected={selected} handleSubmit={handleAddButtonClick} playlists={playlists} handleCloseModal={handleClose} />
                 </div>
                 :
                 <SuccessModalContent layout={statusLayout} />}
