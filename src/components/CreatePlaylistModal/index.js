@@ -8,7 +8,7 @@ import SuccessModalContent from './SuccessModalContent'
 import { createPlaylist } from '../../data/spotify/create-playlist-api-call'
 import { useContext } from 'react'
 import { KeyContext } from '../../pages'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 
 export const InputContext = React.createContext('input')
 
@@ -22,6 +22,7 @@ export default function CreatePlaylistModal({ handleClose }) {
     })
     const [success, setSuccess] = useState(false)
     const history = useHistory()
+    const location = useLocation()
 
     const onFetchError = (error) => {
         if (error.response) {
@@ -71,6 +72,11 @@ export default function CreatePlaylistModal({ handleClose }) {
     const handleCloseSuccessModal = () => {
         handleClose()
         setSuccess(false)
+        if (location.pathname === '/my-playlist') {
+            history.go(0)
+        } else {
+            history.push('/my-playlist')
+        }
     }
 
     const SuccessModalLayout = {

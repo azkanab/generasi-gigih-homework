@@ -18,8 +18,8 @@ td {
     padding: 10px 15px;
 }
 
-.table-row-track {
-    cursor: pointer;
+tr {
+    cursor: default;
 }
 
 .table-row-track:hover {

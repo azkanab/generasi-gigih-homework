@@ -1,7 +1,7 @@
 const axios = require('axios')
 
 export function createPlaylist(token, userID, data) {
-    const URL = `https://api.spotify.com/v1/users/${userID}/playlists`
+    const fullUrl = `https://api.spotify.com/v1/users/${userID}/playlists`
     
     const bodyParams = {
         name: data.name,
@@ -22,7 +22,7 @@ export function createPlaylist(token, userID, data) {
         })
     }
 
-    return axios.post(URL, bodyParams, {
+    return axios.post(fullUrl, bodyParams, {
         headers: HEADER
     })
         .then(onFetchSuccessful)

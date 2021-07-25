@@ -12,7 +12,7 @@ const getImage = (images) => {
 }
 
 export function getPlaylistDetail(token, playlistID) {
-    const URL = `https://api.spotify.com/v1/playlists/${playlistID}`
+    const fullUrl = `https://api.spotify.com/v1/playlists/${playlistID}`
     
     const HEADER = {
         Authorization: `${token.token_type} ${token.access_token}`
@@ -55,7 +55,7 @@ export function getPlaylistDetail(token, playlistID) {
         return result
     }
 
-    return axios.get(URL, {
+    return axios.get(fullUrl, {
         headers: HEADER
     })
         .then(onFetchSuccessful)
