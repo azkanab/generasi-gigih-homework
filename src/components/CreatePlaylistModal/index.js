@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useRecoilState } from 'recoil'
 import { userState } from '../../state/user'
 import { useSelector, useDispatch } from 'react-redux'
-// import { tokenState } from '../../state/auth/token'
 import { changeToken } from '../../redux/actions/token-actions'
 import '../../styles/CreatePlaylistModal/Modal.css'
 import ModalContent from './ModalContent'
@@ -18,7 +17,6 @@ export const InputContext = React.createContext('input')
 export default function CreatePlaylistModal({ handleClose }) {
     const loaderContext = useContext(KeyContext)
     const [user, setUser] = useRecoilState(userState)
-    // const [token, setToken] = useRecoilState(tokenState)
     const dispatch = useDispatch()
 
     const token = useSelector(state => state.token.value)
@@ -48,14 +46,12 @@ export default function CreatePlaylistModal({ handleClose }) {
         if (error.response) {
             switch (error.response.status) {
                 case 401: // unauthorized
-                    // setToken({})
                     dispatch(changeToken({}))
                     setUser({})
                     loaderContext.setIsFetching(false)
                     history.push('/login')
                     break;
                 case 400: // bad request
-                    // setToken({})
                     dispatch(changeToken({}))
                     setUser({})
                     loaderContext.setIsFetching(false)

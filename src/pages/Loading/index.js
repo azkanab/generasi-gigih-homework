@@ -1,16 +1,12 @@
 import { useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-// import { tokenState } from "../../state/auth/token";
-// import { useRecoilState } from "recoil";
 import { changeToken } from "../../redux/actions/token-actions";
 import isObjectEmpty from "../../utils/isObjectEmpty";
 import { KeyContext } from "..";
 
 export default function Loading() {
     const loaderContext = useContext(KeyContext)
-
-    // const [token, setToken] = useRecoilState(tokenState)
     const dispatch = useDispatch()
 
     const token = useSelector(state => state.token.value)
@@ -29,11 +25,6 @@ export default function Loading() {
                 token_type: tokenType,
                 expires_in: expiresIn
             }))
-            // setToken({
-            //     access_token: accessToken,
-            //     token_type: tokenType,
-            //     expires_in: expiresIn
-            // })
         }
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
