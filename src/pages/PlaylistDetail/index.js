@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import { useParams, useHistory } from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux"
 import { useRecoilState } from "recoil"
 import { useContext } from "react"
 import { getPlaylistDetail } from "../../data/spotify/get-playlist-detail-api-call"
-import { tokenState } from "../../state/auth/token"
+import { changeToken } from "../../redux/actions/token-actions"
+// import { tokenState } from "../../state/auth/token"
 import { KeyContext } from ".."
 import { userState } from "../../state/user"
 import PlaylistInfo from "../../components/MyPlaylist/PlaylistInfo"
@@ -11,7 +13,10 @@ import PlaylistTracks from "../../components/MyPlaylist/PlaylistTracks"
 import isObjectEmpty from "../../utils/isObjectEmpty"
 
 export default function PlaylistDetail() {
-    const [token, setToken] = useRecoilState(tokenState)
+    // const [token, setToken] = useRecoilState(tokenState)
+    const dispatch = useDispatch()
+
+    const token = useSelector(state => state.token.value)
     /* eslint-disable */
     const [user, setUser] = useRecoilState(userState)
     /* eslint-enable */
@@ -24,13 +29,15 @@ export default function PlaylistDetail() {
         if (error.response) {
             switch (error.response.status) {
                 case 401: // unauthorized
-                    setToken({})
+                    // setToken({})
+                    dispatch(changeToken({}))
                     setUser({})
                     loaderContext.setIsFetching(false)
                     history.push('/login')
                     break;
                 case 400: // bad request
-                    setToken({})
+                    // setToken({})
+                    dispatch(changeToken({}))
                     setUser({})
                     loaderContext.setIsFetching(false)
                     history.push('/login')

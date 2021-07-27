@@ -1,6 +1,7 @@
 import { useLocation, useHistory } from "react-router-dom"
 import { useRecoilValue } from "recoil"
-import { myTokenState } from "../../state/auth/token"
+import { useSelector } from "react-redux"
+// import { myTokenState } from "../../state/auth/token"
 import isObjectEmpty from "../../utils/isObjectEmpty"
 import Image from "../common/Image"
 import Text from "../common/Text"
@@ -8,7 +9,8 @@ import SideMenu from "./SideMenu"
 import '../../styles/Sidebar/Sidebar.css'
 
 export default function Sidebar({ show, handleModal, handleCloseSidebar }) {
-    const token = useRecoilValue(myTokenState)
+    // const token = useRecoilValue(myTokenState)
+    const token = useSelector(state => state.token.value)
     const LOGO_IMG_URL = '/spotify.png'
     const LOGO_TEXT = 'Spotifi'
     const location = useLocation()

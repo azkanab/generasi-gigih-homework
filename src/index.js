@@ -1,16 +1,20 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { RecoilRoot } from 'recoil';
+import store from './redux/store'
 
 ReactDOM.render(
   <React.StrictMode>
     <RecoilRoot>
-      <Suspense fallback={<span>Loading...</span>}>
-        <App />
-      </Suspense>
+      <Provider store={store}>
+        <Suspense fallback={<span>Loading...</span>}>
+          <App />
+        </Suspense>
+      </Provider>
     </RecoilRoot>
   </React.StrictMode>,
   document.getElementById('root')

@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext } from 'react'
 import { useRecoilState } from 'recoil'
+import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { KeyContext } from '..'
 import TrackCard from '../../components/Home/TrackCard'
@@ -12,14 +13,18 @@ import { getUser } from '../../data/spotify/user-api-call'
 import isArrayEmpty from '../../utils/isArrayEmpty'
 import getGreeting from '../../utils/getGreeting'
 import isObjectEmpty from '../../utils/isObjectEmpty'
-import { tokenState } from '../../state/auth/token'
+// import { tokenState } from '../../state/auth/token'
+import { changeToken } from '../../redux/actions/token-actions'
 import { userState } from '../../state/user'
 import '../../styles/Home/Home.css'
 
 export default function Home() {
     const loaderContext = useContext(KeyContext)
 
-    const [token, setToken] = useRecoilState(tokenState)
+    // const [token, setToken] = useRecoilState(tokenState)
+    const dispatch = useDispatch()
+    
+    const token = useSelector(state => state.token.value)
     const [user, setUser] = useRecoilState(userState)
     const [tracks, setTracks] = useState([])
     const [selectedTrack, setSelectedTrack] = useState({})
@@ -71,13 +76,15 @@ export default function Home() {
         if (error.response) {
             switch (error.response.status) {
                 case 401: // unauthorized
-                    setToken({})
+                    // setToken({})
+                    dispatch(changeToken({}))
                     setUser({})
                     loaderContext.setIsFetching(false)
                     history.push('/login')
                     break;
                 case 400: // bad request
-                    setToken({})
+                    // setToken({})
+                    dispatch(changeToken({}))
                     setUser({})
                     loaderContext.setIsFetching(false)
                     history.push('/login')
