@@ -1,0 +1,1 @@
+export const CHANGE_TOKEN_TYPE = "change_token"

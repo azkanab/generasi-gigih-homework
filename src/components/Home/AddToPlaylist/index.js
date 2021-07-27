@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
 import { useContext } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { myTokenState } from '../../../state/auth/token'
+import { changeToken } from '../../../redux/actions/token-actions'
 import { userState } from '../../../state/user'
 import '../../../styles/CreatePlaylistModal/Modal.css'
 import '../../../styles/CreatePlaylistModal/Form.css'
@@ -15,7 +16,9 @@ import { addItemToPlaylist } from '../../../data/spotify/add-item-to-playlist'
 import isObjectEmpty from '../../../utils/isObjectEmpty'
 
 export default function AddToPlaylist({ handleClose, data }) {
-    const [token, setToken] = useRecoilState(myTokenState)
+    const dispatch = useDispatch()
+
+    const token = useSelector(state => state.token.value)
     /* eslint-disable */
     const [user, setUser] = useRecoilState(userState)
     /* eslint-enable */
@@ -44,13 +47,13 @@ export default function AddToPlaylist({ handleClose, data }) {
         if (error.response) {
             switch (error.response.status) {
                 case 401: // unauthorized
-                    setToken({})
+                    dispatch(changeToken({}))
                     setUser({})
                     loaderContext.setIsFetching(false)
                     history.push('/login')
                     break;
                 case 400: // bad request
-                    setToken({})
+                    dispatch(changeToken({}))
                     setUser({})
                     loaderContext.setIsFetching(false)
                     history.push('/login')

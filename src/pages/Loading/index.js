@@ -1,14 +1,15 @@
 import { useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { tokenState } from "../../state/auth/token";
-import { useRecoilState } from "recoil";
+import { useDispatch, useSelector } from "react-redux";
+import { changeToken } from "../../redux/actions/token-actions";
 import isObjectEmpty from "../../utils/isObjectEmpty";
 import { KeyContext } from "..";
 
 export default function Loading() {
     const loaderContext = useContext(KeyContext)
+    const dispatch = useDispatch()
 
-    const [token, setToken] = useRecoilState(tokenState)
+    const token = useSelector(state => state.token.value)
     const urlSearchParams = new URLSearchParams(window.location.hash.substring(1));
     const error = urlSearchParams.get('error');
     const history = useHistory()
@@ -19,11 +20,11 @@ export default function Loading() {
             let accessToken = urlSearchParams.get('access_token')
             let tokenType = urlSearchParams.get('token_type')
             let expiresIn = urlSearchParams.get('expires_in')
-            setToken({
+            dispatch(changeToken({
                 access_token: accessToken,
                 token_type: tokenType,
                 expires_in: expiresIn
-            })
+            }))
         }
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
