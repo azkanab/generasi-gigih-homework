@@ -10,6 +10,7 @@ export default function Loading() {
     const dispatch = useDispatch()
 
     const token = useSelector(state => state.token.value)
+    const redirectURI = useSelector(state => state.redirect.value)
     const urlSearchParams = new URLSearchParams(window.location.hash.substring(1));
     const error = urlSearchParams.get('error');
     const history = useHistory()
@@ -29,10 +30,14 @@ export default function Loading() {
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {
-        if (!isObjectEmpty(token)) {
-            history.push("/")
-        }
         loaderContext.setIsFetching(true)
+        if (!isObjectEmpty(token)) {
+            if (isObjectEmpty(redirectURI)) {
+                history.push("/")
+            } else {
+                history.push(redirectURI)
+            }
+        }
     }, [token]) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (

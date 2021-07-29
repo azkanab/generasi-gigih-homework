@@ -4,6 +4,7 @@ import Home from "../pages/Home"
 import Loading from "../pages/Loading"
 import MyPlaylist from "../pages/MyPlaylist"
 import PlaylistDetail from "../pages/PlaylistDetail"
+import CreatePlaylist from "../pages/CreatePlaylist"
 import '../styles/Main/Main.css'
 import { Fragment } from "react"
 
@@ -17,6 +18,7 @@ export default function AppRouter() {
                     <Route exact path='/' component={Home}></Route>
                     <Route exact path='/my-playlist' component={MyPlaylist}></Route>
                     <Route exact path='/my-playlist/:playlistId' component={PlaylistDetail}></Route>
+                    <Route exact path="/create-playlist" component={CreatePlaylist}></Route>
                 </div>
             </Fragment>
         </Switch>

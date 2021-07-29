@@ -9,12 +9,12 @@ import SuccessModalContent from './SuccessModalContent'
 import { createPlaylist } from '../../data/spotify/create-playlist-api-call'
 import { useContext } from 'react'
 import { KeyContext } from '../../pages'
-import { useHistory, useLocation } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import isObjectEmpty from '../../utils/isObjectEmpty'
 
 export const InputContext = React.createContext('input')
 
-export default function CreatePlaylistModal({ handleClose }) {
+export default function CreatePlaylistModal() {
     const loaderContext = useContext(KeyContext)
     const [user, setUser] = useRecoilState(userState)
     const dispatch = useDispatch()
@@ -26,7 +26,6 @@ export default function CreatePlaylistModal({ handleClose }) {
     })
     const [statusLayout, setStatusLayout] = useState({})
     const history = useHistory()
-    const location = useLocation()
 
     const SuccessModalLayout = {
         imgUrl: '/success.png',
@@ -39,7 +38,7 @@ export default function CreatePlaylistModal({ handleClose }) {
         imgUrl: '/failed.png',
         title: 'Failed',
         description: `You failed to create a new playlist`,
-        handleClose: () => handleClose()
+        handleClose: () => handleCloseFailedModal()
     }
 
     const onFetchError = (error) => {
@@ -93,12 +92,11 @@ export default function CreatePlaylistModal({ handleClose }) {
     }
 
     const handleCloseSuccessModal = () => {
-        handleClose()
-        if (location.pathname === '/my-playlist') {
-            history.go(0)
-        } else {
-            history.push('/my-playlist')
-        }
+        history.push('/my-playlist')
+    }
+
+    const handleCloseFailedModal = () => {
+        history.goBack()
     }
     
     return (
@@ -109,7 +107,7 @@ export default function CreatePlaylistModal({ handleClose }) {
                     data: form,
                     handleChange: (e) => handleInputChange(e)
                 }}>
-                    <ModalContent handleSubmit={handleFormSubmit} handleClose={handleClose}  />
+                    <ModalContent handleSubmit={handleFormSubmit} />
                 </InputContext.Provider>
                 :
                 <SuccessModalContent layout={statusLayout} />}
