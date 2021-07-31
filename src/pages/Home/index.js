@@ -1,8 +1,8 @@
 import { useEffect, useState, useContext } from 'react'
 import { useRecoilState } from 'recoil'
 import { useSelector, useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom'
-import { KeyContext } from '..'
+import { useHistory, useLocation } from 'react-router-dom'
+import { HomeContext } from '..'
 import TrackCard from '../../components/Home/TrackCard'
 import SearchForm from '../../components/Home/SearchForm'
 import Text from '../../components/common/Text'
@@ -13,12 +13,14 @@ import { getUser } from '../../data/spotify/user-api-call'
 import isArrayEmpty from '../../utils/isArrayEmpty'
 import getGreeting from '../../utils/getGreeting'
 import isObjectEmpty from '../../utils/isObjectEmpty'
+import { isLogin } from '../../utils/isLogin'
 import { changeToken } from '../../redux/actions/token-actions'
+import { changeRedirectURI } from '../../redux/actions/redirect-actions'
 import { userState } from '../../state/user'
 import '../../styles/Home/Home.css'
 
 export default function Home() {
-    const loaderContext = useContext(KeyContext)
+    const loaderContext = useContext(HomeContext)
     const dispatch = useDispatch()
     
     const token = useSelector(state => state.token.value)
@@ -33,7 +35,9 @@ export default function Home() {
         offset: 0
     })
     const history = useHistory()
+    const location = useLocation()
     const [showAddTrackModal, setShowAddTrackModal] = useState(false)
+    const NO_NETWORK_ERROR = "Network Error"
 
     const handleOpenAddTrackModal = (data) => {
         setSelectedTrack(data)
@@ -93,8 +97,11 @@ export default function Home() {
                     console.log(`Error: ${error.message}`)
                     break;
             }
+        } else if (error.message === NO_NETWORK_ERROR) {
+            loaderContext.setIsFetching(false)
+            loaderContext.setShowNoNetworkModal(true)
         } else {
-            console.log(`Error: ${error}`)
+            console.log(`Error: ${error.message}`)
         }
     }
 
@@ -134,10 +141,14 @@ export default function Home() {
         }
     }
 
-    useEffect(() => {
-        if (isObjectEmpty(token)) {
+    const init = () => {
+        dispatch(changeRedirectURI(location.pathname))
+        if (isLogin(token)) {
+            loaderContext.setIsFetching(false)
+        } else {
             history.push("/login")
         }
+
         if (!isObjectEmpty(user)) {
             setGreetingWord(`${getGreeting()}, ${user.name}!`)
         }
@@ -146,6 +157,10 @@ export default function Home() {
         window.scrollTo(0,0)
         fetchUser()
         fetchRecommendation()
+    }
+
+    useEffect(() => {
+        init()
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (

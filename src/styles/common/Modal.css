@@ -1,4 +1,4 @@
-.create-playlist-modal {
+.modal {
     position: fixed;
     z-index: 5;
     left: 0;
@@ -18,30 +18,6 @@
     width: 30%;
     margin: auto;
     border-radius: 10px;
-}
-
-.create-button-wrapper {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 40px;
-}
-
-.create-button-wrapper button {
-    font-family: 'Circular-Bold';
-	color: white;
-	font-size: 16px;
-    padding: 5px 30px; 
-	border-radius: 15px;
-    width: fit-content;
-    cursor: pointer;
-    border: 2px solid #1DB954;
-    box-sizing: border-box;
-    width: 100%;
-    margin: 0px 10px;
-}
-
-.create-button-wrapper button:hover {
-    border: 2px solid #15863d;
 }
 
 @media screen and (max-width: 870px) {

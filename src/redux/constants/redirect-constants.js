@@ -1,0 +1,1 @@
+export const CHANGE_REDIRECT_URI = "change_redirect_uri"

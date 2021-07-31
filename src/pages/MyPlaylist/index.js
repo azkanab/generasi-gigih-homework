@@ -2,15 +2,17 @@ import { useEffect } from "react"
 import { useRecoilState } from "recoil"
 import { useSelector, useDispatch } from "react-redux"
 import { useContext } from "react"
-import { useHistory } from "react-router"
+import { useHistory, useLocation } from "react-router-dom"
 import Text from "../../components/common/Text"
 import PlaylistCard from "../../components/MyPlaylist/PlaylistCard"
 import { changeToken } from "../../redux/actions/token-actions"
+import { changeRedirectURI } from "../../redux/actions/redirect-actions"
 import { userState } from "../../state/user"
 import { getPlaylistList } from "../../data/spotify/get-playlist-list-api-call"
 import { useState } from "react"
 import isArrayEmpty from "../../utils/isArrayEmpty"
-import { KeyContext } from ".."
+import { isLogin } from "../../utils/isLogin"
+import { HomeContext } from ".."
 
 export default function MyPlaylist() {
     const dispatch = useDispatch()
@@ -20,7 +22,9 @@ export default function MyPlaylist() {
     /* eslint-enable */
     const [playlists, setPlaylists] = useState([])
     const history = useHistory()
-    const loaderContext = useContext(KeyContext)
+    const location = useLocation()
+    const loaderContext = useContext(HomeContext)
+    const NO_NETWORK_ERROR = "Network Error"
 
     const onFetchError = (error) => {
         if (error.response) {
@@ -42,8 +46,11 @@ export default function MyPlaylist() {
                     console.log(`Error: ${error.message}`)
                     break;
             }
+        }  else if (error.message === NO_NETWORK_ERROR) {
+            loaderContext.setIsFetching(false)
+            loaderContext.setShowNoNetworkModal(true)
         } else {
-            console.log(`Error: ${error}`)
+            console.log(`Error: ${error.message}`)
         }
     }
 
@@ -67,11 +74,21 @@ export default function MyPlaylist() {
         )
     }
 
-    useEffect(() => {
-        loaderContext.setIsFetching(true)
+    const init = () => {
+        dispatch(changeRedirectURI(location.pathname))
+        if (isLogin(token)) {
+            loaderContext.setIsFetching(false)
+        } else {
+            history.push("/login")
+        }
         document.title = 'Spotifi | My Playlist';
         window.scrollTo(0,0)
+        loaderContext.setIsFetching(true)
         fetchPlaylist()
+    }
+
+    useEffect(() => {
+        init()
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (

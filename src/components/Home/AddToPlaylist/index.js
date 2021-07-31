@@ -5,12 +5,12 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { changeToken } from '../../../redux/actions/token-actions'
 import { userState } from '../../../state/user'
-import '../../../styles/CreatePlaylistModal/Modal.css'
-import '../../../styles/CreatePlaylistModal/Form.css'
+import '../../../styles/common/Modal.css'
+import '../../../styles/common/Form.css'
 import Text from '../../common/Text'
 import Form from './Form'
-import SuccessModalContent from '../../CreatePlaylistModal/SuccessModalContent'
-import { KeyContext } from '../../../pages'
+import SuccessModalContent from '../../common/SuccessModalContent'
+import { HomeContext } from '../../../pages'
 import { getPlaylistList } from '../../../data/spotify/get-playlist-list-api-call'
 import { addItemToPlaylist } from '../../../data/spotify/add-item-to-playlist'
 import isObjectEmpty from '../../../utils/isObjectEmpty'
@@ -25,7 +25,7 @@ export default function AddToPlaylist({ handleClose, data }) {
     const [selectedPlaylist, setSelectedPlaylist] = useState("")
     const [playlists, setPlaylists] = useState([])
     const [statusLayout, setStatusLayout] = useState({})
-    const loaderContext = useContext(KeyContext)
+    const loaderContext = useContext(HomeContext)
     const history = useHistory()
     const INFO_TEXT = `You want to add ${data.trackTitle} to`
 
@@ -102,8 +102,7 @@ export default function AddToPlaylist({ handleClose, data }) {
 
     const handleAddButtonClick = (e) => {
         e.preventDefault()
-        if (selectedPlaylist === "") {
-        } else {
+        if (selectedPlaylist !== "") {
             loaderContext.setIsFetching(true)
             addSongToPlaylist()
         }
@@ -120,7 +119,7 @@ export default function AddToPlaylist({ handleClose, data }) {
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <div className="create-playlist-modal">
+        <div className="modal">
             <div className="modal-content">
                {isObjectEmpty(statusLayout) ? <div>
                     <Text text="Select your playlist" textClass="create-playlist-title" />

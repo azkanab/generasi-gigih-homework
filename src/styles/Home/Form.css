@@ -3,6 +3,13 @@
     display: flex;
 }
 
+.form-container input {
+  border: 1px solid #3E3E3E;
+  box-sizing: border-box;
+  background-color: #333333;
+  color: white;
+}
+
 .button-container button {
     font-size: 16px;
     height: 100%;

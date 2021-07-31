@@ -3,19 +3,19 @@ import { useRecoilState } from 'recoil'
 import { userState } from '../../state/user'
 import { useSelector, useDispatch } from 'react-redux'
 import { changeToken } from '../../redux/actions/token-actions'
-import '../../styles/CreatePlaylistModal/Modal.css'
+import '../../styles/common/Modal.css'
 import ModalContent from './ModalContent'
-import SuccessModalContent from './SuccessModalContent'
+import SuccessModalContent from '../common/SuccessModalContent'
 import { createPlaylist } from '../../data/spotify/create-playlist-api-call'
 import { useContext } from 'react'
-import { KeyContext } from '../../pages'
+import { HomeContext } from '../../pages'
 import { useHistory, useLocation } from 'react-router-dom'
 import isObjectEmpty from '../../utils/isObjectEmpty'
 
-export const InputContext = React.createContext('input')
+export const CreateModalContext = React.createContext('create-modal')
 
 export default function CreatePlaylistModal({ handleClose }) {
-    const loaderContext = useContext(KeyContext)
+    const loaderContext = useContext(HomeContext)
     const [user, setUser] = useRecoilState(userState)
     const dispatch = useDispatch()
 
@@ -49,12 +49,14 @@ export default function CreatePlaylistModal({ handleClose }) {
                     dispatch(changeToken({}))
                     setUser({})
                     loaderContext.setIsFetching(false)
+                    handleClose()
                     history.push('/login')
                     break;
                 case 400: // bad request
                     dispatch(changeToken({}))
                     setUser({})
                     loaderContext.setIsFetching(false)
+                    handleClose()
                     history.push('/login')
                     break;
                 case 403: // forbidden
@@ -102,15 +104,15 @@ export default function CreatePlaylistModal({ handleClose }) {
     }
     
     return (
-        <div className="create-playlist-modal">
+        <div className="modal">
             <div className="modal-content">
                 {isObjectEmpty(statusLayout) ?
-                <InputContext.Provider value={{
+                <CreateModalContext.Provider value={{
                     data: form,
                     handleChange: (e) => handleInputChange(e)
                 }}>
                     <ModalContent handleSubmit={handleFormSubmit} handleClose={handleClose}  />
-                </InputContext.Provider>
+                </CreateModalContext.Provider>
                 :
                 <SuccessModalContent layout={statusLayout} />}
             </div>

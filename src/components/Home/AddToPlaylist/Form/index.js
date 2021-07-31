@@ -22,7 +22,7 @@ export default function Form(props) {
                     {renderOption()}
                 </select>
             </div>
-            <div className="create-button-wrapper">
+            <div className="create-modal-button-wrapper">
                 <Button text="Cancel" handleClick={handleCloseModal}  />
                 <Button primary text="Add" type='submit' />
             </div>
