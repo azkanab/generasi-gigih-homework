@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react"
-import { useParams, useHistory } from "react-router-dom"
+import { useParams, useHistory, useLocation } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { useRecoilState } from "recoil"
 import { useContext } from "react"
 import { getPlaylistDetail } from "../../data/spotify/get-playlist-detail-api-call"
 import { changeToken } from "../../redux/actions/token-actions"
-import { KeyContext } from ".."
+import { changeRedirectURI } from "../../redux/actions/redirect-actions"
+import { HomeContext } from ".."
 import { userState } from "../../state/user"
 import PlaylistInfo from "../../components/MyPlaylist/PlaylistInfo"
 import PlaylistTracks from "../../components/MyPlaylist/PlaylistTracks"
 import isObjectEmpty from "../../utils/isObjectEmpty"
+import { isLogin } from "../../utils/isLogin"
 
 export default function PlaylistDetail() {
     const dispatch = useDispatch()
@@ -20,8 +22,9 @@ export default function PlaylistDetail() {
     /* eslint-enable */
     const [playlist, setPlaylist] = useState({})
     const params = useParams()
-    const loaderContext = useContext(KeyContext)
+    const loaderContext = useContext(HomeContext)
     const history = useHistory()
+    const location = useLocation()
 
     const onFetchError = (error) => {
         if (error.response) {
@@ -70,10 +73,20 @@ export default function PlaylistDetail() {
         }
     }
 
-    useEffect(() => {
+    const init = () => {
+        dispatch(changeRedirectURI(location.pathname))
+        if (isLogin(token)) {
+            loaderContext.setIsFetching(false)
+        } else {
+            history.push("/login")
+        }
         window.scrollTo(0,0)
         loaderContext.setIsFetching(true)
         fetchPlaylistDetail()
+    }
+
+    useEffect(() => {
+        init()
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (

@@ -4,15 +4,17 @@ import Navbar from "../components/Navbar"
 import AppRouter from "../route"
 import Loader from "../components/common/Loader"
 import Sidebar from "../components/Sidebar"
+import NoNetworkModal from "../components/common/NoNetworkModal"
 import CreatePlaylistModal from "../components/CreatePlaylistModal"
 import '../styles/Main/Main.css'
 
-export const KeyContext = React.createContext('loading')
+export const HomeContext = React.createContext('loading')
 
 export default function Main() {
     const [isFetching, setIsFetching] = useState(true)
     const [showCreateModal, setShowCreateModal] = useState(false)
     const [showSideBarMobile, setShowSideBarMobile] = useState(false)
+    const [showNoNetworkModal, setShowNoNetworkModal] = useState(false)
 
     const handleOpenCreatePlaylistModal = () => {
         return setShowCreateModal(true)
@@ -31,17 +33,19 @@ export default function Main() {
     }
 
     return (
-        <KeyContext.Provider value={{
+        <HomeContext.Provider value={{
             setIsFetching: setIsFetching,
-            setShowCreateModal: setShowCreateModal
+            setShowCreateModal: setShowCreateModal,
+            setShowNoNetworkModal: setShowNoNetworkModal
         }}>
             <Router>
                 {isFetching && <Loader />}
+                {showNoNetworkModal && <NoNetworkModal />}
                 {showCreateModal && <CreatePlaylistModal handleClose={handleCloseCreatePlaylistModal} />}
                 <Sidebar show={showSideBarMobile} handleModal={handleOpenCreatePlaylistModal} handleCloseSidebar={handleCloseSideBarMobile} />
                 <Navbar openSideBar={handleOpenSideBarMobile}  />
                 <AppRouter />
             </Router>
-        </KeyContext.Provider>
+        </HomeContext.Provider>
     )
 }

@@ -1,0 +1,59 @@
+.create-playlist_form-container {
+    max-width: 925px;
+}
+
+.create-page-button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    text-align: end;
+}
+
+.create-page-button-wrapper button {
+    margin-top: 10px;
+    font-family: 'Circular-Bold';
+	color: white;
+	font-size: 16px;
+    padding: 7px 30px; 
+	border-radius: 15px;
+	border: 0;
+    width: 100%;
+    max-width: 120px;
+    cursor: pointer;
+}
+
+.create-modal-button-wrapper, .success-modal-button-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+
+.create-modal-button-wrapper button, .success-modal-button-wrapper button {
+    font-family: 'Circular-Bold';
+	color: white;
+	font-size: 16px;
+    padding: 5px 30px; 
+	border-radius: 15px;
+    width: fit-content;
+    cursor: pointer;
+    border: 2px solid #1DB954;
+    box-sizing: border-box;
+    margin: 0 10px;
+}
+
+.create-modal-button-wrapper button {
+    width: 100%;
+}
+
+.success-modal-button-wrapper button {
+    width: fit-content;
+}
+
+.create-modal-button-wrapper button:hover, .success-modal-button-wrapper button:hover {
+    border: 2px solid #15863d;
+}
+
+@media screen and (max-width: 375px) {
+    .create-playlist_form-container {
+        margin: 0px 12.5px;
+    }
+}

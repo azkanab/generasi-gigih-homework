@@ -6,7 +6,7 @@ import Text from "../common/Text"
 import SideMenu from "./SideMenu"
 import '../../styles/Sidebar/Sidebar.css'
 
-export default function Sidebar({ show, handleModal, handleCloseSidebar }) {
+export default function Sidebar({ show, handleCloseSidebar }) {
     const token = useSelector(state => state.token.value)
     const LOGO_IMG_URL = '/spotify.png'
     const LOGO_TEXT = 'Spotifi'
@@ -27,6 +27,10 @@ export default function Sidebar({ show, handleModal, handleCloseSidebar }) {
 
     const isPlaylistList = () => {
         return location.pathname === '/my-playlist'
+    }
+
+    const isCreatePlaylist = () => {
+        return location.pathname === '/create-playlist'
     }
 
     const handleHomeClick = () => {
@@ -54,8 +58,11 @@ export default function Sidebar({ show, handleModal, handleCloseSidebar }) {
     const handleCreateClick = () => {
         if (isObjectEmpty(token)) {
             history.push("/login")
+        } else if (isCreatePlaylist()) {
+            history.go(0)
         } else {
-            handleModal()
+            history.push("/create-playlist")
+            // handleModal()
         }
         handleCloseSidebar()
     }
@@ -74,7 +81,7 @@ export default function Sidebar({ show, handleModal, handleCloseSidebar }) {
         text: 'My Playlist'
     }, {
         id: 3,
-        active: false,
+        active: isCreatePlaylist(),
         handleOnClick: () => handleCreateClick(),
         img: '/add.png',
         text: 'Create Playlist'

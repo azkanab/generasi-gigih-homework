@@ -4,10 +4,10 @@ import Button from "../../components/common/Button"
 import Image from "../../components/common/Image"
 import '../../styles/Login/login.css'
 import getFullUrl from "../../utils/getFullUrl"
-import { KeyContext } from ".."
+import { HomeContext } from ".."
 
 export default function Login() {
-    const loaderContext = useContext(KeyContext)
+    const loaderContext = useContext(HomeContext)
 
     const LOGIN_BUTTON = 'Login with Spotify'
     const SPOTIFI_TITLE = 'Spotifi'
