@@ -135,6 +135,7 @@ export default function CreatePlaylist() {
         } else {
             history.push("/login")
         }
+        document.title = 'Spotifi | Create Playlist';
         window.scrollTo(0,0)
     }
 
