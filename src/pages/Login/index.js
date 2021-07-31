@@ -1,4 +1,7 @@
 import { useEffect, useContext } from "react"
+import { useLocation } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { changeRedirectURI } from "../../redux/actions/redirect-actions"
 import Text from "../../components/common/Text"
 import Button from "../../components/common/Button"
 import Image from "../../components/common/Image"
@@ -8,6 +11,8 @@ import { HomeContext } from ".."
 
 export default function Login() {
     const loaderContext = useContext(HomeContext)
+    const dispatch = useDispatch()
+    const location = useLocation()
 
     const LOGIN_BUTTON = 'Login with Spotify'
     const SPOTIFI_TITLE = 'Spotifi'
@@ -24,6 +29,9 @@ export default function Login() {
 
     useEffect(() => {
         document.title = 'Spotifi | Login';
+        if (location.state) {
+            dispatch(changeRedirectURI(location.state.redirectURI))
+        }
         loaderContext.setIsFetching(false);
         window.scrollTo(0,0)
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
