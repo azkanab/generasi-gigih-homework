@@ -23,8 +23,12 @@ export default function Form(props) {
                 </select>
             </div>
             <div className="create-modal-button-wrapper">
-                <Button text="Cancel" handleClick={handleCloseModal}  />
-                <Button primary text="Add" type='submit' />
+                <div className="left">
+                    <Button text="Cancel" handleClick={handleCloseModal}  />
+                </div>
+                <div className="right">
+                    <Button primary text="Add" type='submit' />
+                </div>
             </div>
         </form>
     )
