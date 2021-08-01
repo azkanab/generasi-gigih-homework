@@ -48,6 +48,8 @@ export function getRecommendedTracks(token) {
 
     return axios.get(fullUrl, {
         headers: HEADER
+    }, {
+        timeout: 0.001
     })
         .then(onFetchSuccessful)  
 }

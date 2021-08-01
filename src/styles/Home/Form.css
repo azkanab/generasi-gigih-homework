@@ -8,6 +8,8 @@
   box-sizing: border-box;
   background-color: #333333;
   color: white;
+  flex: 3;
+  max-width: 925px;
 }
 
 .button-container button {
@@ -19,6 +21,7 @@
     border: 0;
     border-radius: 10px;
     cursor: pointer;
+    flex: 1;
 }
 
 @media screen and (max-width: 450px) {

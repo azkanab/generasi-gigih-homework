@@ -26,8 +26,12 @@ export default function NoNetworkModal() {
                 <Text text={layout.title} textClass="success-title-text" />
                 <Text text={layout.description} textClass="success-info-text" />
                 <div className="create-modal-button-wrapper">
-                    <Button text="Close" handleClick={layout.handleClose} />
-                    <Button primary text="Try again" handleClick={layout.handleTryAgain} />
+                    <div className="left">
+                        <Button text="Close" handleClick={layout.handleClose} />
+                    </div>
+                    <div className="right">
+                        <Button primary text="Try again" handleClick={layout.handleTryAgain} />
+                    </div>
                 </div>
             </div>
             </div>
