@@ -18,6 +18,8 @@
 
 .sidebar-menu-wrapper {
     margin-top: 50px;
+    display: grid;
+    grid-template-columns: auto;
 }
 
 .copyright-wrapper {
