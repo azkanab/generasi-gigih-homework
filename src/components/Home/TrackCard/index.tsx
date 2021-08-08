@@ -18,9 +18,35 @@ const IMG_PLAY_ALT = "Select Button"
 const IMG_DESELECT_ALT = "Deselect Button"
 const IMG_PLAY_CLASS = "play-button"
 
-export default function TrackCard({ type, data, handleClick }) {
+interface Data {
+	id: string,
+	uri: string,
+	imgUrl: string,
+	trackTitle: string,
+	artistName: string[],
+	albumName: string,
+	spotifyUrl: string
+}
 
-	const [track, setTrack] = useState({})
+interface Props {
+	type: string,
+	data: Data,
+	handleClick: (data: Data) => void
+}
+
+interface TrackState {
+	altAlbum?: string,
+	imgUrl?: string,
+	title?: string,
+	artists?: string[],
+	album?: string,
+	url?: string,
+	uri?: string
+}
+
+export default function TrackCard({ type, data, handleClick }: Props) {
+
+	const [track, setTrack] = useState<TrackState>({})
 
 	const playButton = {
 		imgUrl: IMG_PLAY_BUTTON,
