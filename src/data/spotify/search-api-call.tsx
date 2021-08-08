@@ -59,7 +59,7 @@ interface Tracks {
     spotifyUrl: string
 }
 
-export function getSearchTracks(params: Params, token: Token) {
+export function getSearchTracks(params: Params, token: Token): Promise<Tracks> {
     let fullUrl = getFullUrl(BASE_URL, params)
 
     const HEADER = {
