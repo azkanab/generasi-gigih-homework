@@ -1,0 +1,17 @@
+.my-playlist {
+    width: 100%;
+}
+  
+.my-playlist-wrapper-track {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px;
+    width: fit-content;
+}
+  
+@media screen and (max-width: 375px) {
+    .my-playlist-wrapper-track {
+        gap: 0px;
+    }
+}
