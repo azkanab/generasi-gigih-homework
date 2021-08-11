@@ -84,8 +84,8 @@ export default function TrackCard({ type, data, handleClick }: Props) {
 	}, [data])
 
     return (
-		!isObjectEmpty(track) &&
-		<div className="wrapper">
+		!isObjectEmpty(track) ?
+		<div id="track-card" className="wrapper">
 			<div className="image-wrapper">
 				<Image imgUrl={track.imgUrl} imgAlt={track.altAlbum} imgClass="albumImage" />
 				<div className="button-wrapper">
@@ -104,6 +104,6 @@ export default function TrackCard({ type, data, handleClick }: Props) {
 				</div>
 			</div>
 		</div>
-		
+		: null
     )
 }
