@@ -7,6 +7,6 @@ export default function Image ({ imgUrl, imgAlt, imgClass }) {
     const [isLoaded, setIsLoaded] = useState(false)
 
     return (
-        <img src={isLoaded ? imgUrl : BASIC_IMG_URL} alt={imgAlt} className={imgClass} onLoad={() => setIsLoaded(true)} />
+        <img src={!isLoaded && imgClass === "albumImage" ? BASIC_IMG_URL : imgUrl } alt={imgAlt} className={imgClass} onLoad={() => setIsLoaded(true)} />
     )
 }

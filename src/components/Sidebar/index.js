@@ -1,5 +1,10 @@
+import { useContext } from "react"
 import { useLocation, useHistory } from "react-router-dom"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
+import { useRecoilState } from 'recoil'
+import { HomeContext } from "../../pages"
+import { changeToken } from "../../redux/actions/token-actions"
+import { userState } from "../../state/user"
 import isObjectEmpty from "../../utils/isObjectEmpty"
 import Image from "../common/Image"
 import Text from "../common/Text"
@@ -8,10 +13,15 @@ import '../../styles/Sidebar/Sidebar.css'
 
 export default function Sidebar({ show, handleCloseSidebar }) {
     const token = useSelector(state => state.token.value)
+    /* eslint-disable */
+    const [user, setUser] = useRecoilState(userState)
+    /* eslint-enable */
     const LOGO_IMG_URL = '/spotify.png'
     const LOGO_TEXT = 'Spotifi'
     const location = useLocation()
     const history = useHistory()
+    const loaderContext = useContext(HomeContext)
+    const dispatch = useDispatch()
 
     const hideSidebar = () => {
         return location.pathname === '/login'
@@ -67,6 +77,18 @@ export default function Sidebar({ show, handleCloseSidebar }) {
         handleCloseSidebar()
     }
 
+    const handleLogout = () => {
+        if (isObjectEmpty(token)) {
+            history.push("/login")
+        } else {
+            dispatch(changeToken({}))
+            setUser({})
+            history.push("/login")
+        }
+        handleCloseSidebar()
+        loaderContext.setIsFetching(true)
+    }
+
     const sideMenus = [{
         id: 1,
         active: isHome(),
@@ -85,6 +107,12 @@ export default function Sidebar({ show, handleCloseSidebar }) {
         handleOnClick: () => handleCreateClick(),
         img: '/add.png',
         text: 'Create Playlist'
+    }, {
+        id: 4,
+        active: false,
+        handleOnClick: () => handleLogout(),
+        img: '/logout.png',
+        text: 'Logout'
     }]
 
     const renderSideMenu = () => {
