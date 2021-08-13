@@ -23,3 +23,8 @@
     color: #15863d !important;
     background-color: #ebebeb !important;
 }
+
+.button-disable {
+    background-color: #cccccc;
+    color: white;
+}

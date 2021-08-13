@@ -15,6 +15,7 @@ export default function FormInput({ type, data }) {
             :
                 <input required={data.required} placeholder={data.placeholder} value={type === 'pages' ? pageContext.data[data.id] : modalContext.data[data.id]} onChange={(e) => type === 'pages' ? pageContext.handleChange(e) : modalContext.handleChange(e)} id={data.id} name={data.id} type={data.type} />
             }
+            <p style={{color: 'red'}}>{pageContext.errorMessage[data.id]}</p>
         </div>
     )
 }

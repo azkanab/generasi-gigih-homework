@@ -2,7 +2,7 @@ import FormInput from "../FormInput"
 import Button from "../Button"
 import '../../../styles/common/Form.css'
 
-export default function Form({ type, handleSubmit, handleClose, inputLayout }) {
+export default function Form({ type, allowSubmit, handleSubmit, handleClose, inputLayout }) {
     const renderInputSections = () => {
         return (
             inputLayout.map(section => (
@@ -19,7 +19,11 @@ export default function Form({ type, handleSubmit, handleClose, inputLayout }) {
                     {type === 'modal' && <Button text="Cancel" handleClick={handleClose} /> }
                 </div>
                 <div className="right">
-                    <Button primary text="Create" type="submit" />
+                    {allowSubmit ?
+                        <Button primary text="Create" type="submit" />
+                        :
+                        <Button disable text="Create" type="submit" />
+                    }
                 </div>
             </div>
         </form>

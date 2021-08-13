@@ -13,6 +13,7 @@ import { createPlaylist } from "../../data/spotify/create-playlist-api-call"
 import SuccessModalContent from '../../components/common/SuccessModalContent'
 import { isLogin } from '../../utils/isLogin'
 import '../../styles/common/Modal.css'
+import { isLengthLarger } from '../../utils/isLengthLarger'
 
 export const CreatePageContext = React.createContext('create-page')
 
@@ -20,10 +21,19 @@ export default function CreatePlaylist() {
     const loaderContext = useContext(HomeContext)
     const dispatch = useDispatch()
     const token = useSelector(state => state.token.value)
+    const [allowToSubmit, setAllowToSubmit] = useState(false)
     const [form, setForm] = useState({
         name: '',
         description: ''
     })
+    const [errorMessage, setErrorMessage] = useState({
+        name: '',
+        description: ''
+    })
+    const minLength = {
+        name: 10,
+        description: 20
+    }
     const [user, setUser] = useRecoilState(userState)
     const [showSuccessModal, setShowSuccessModal] = useState(false)
     const [statusLayout, setStatusLayout] = useState({})
@@ -42,7 +52,7 @@ export default function CreatePlaylist() {
         textLabel: 'Description',
         type: 'text-area',
         inputType: 'text',
-        required: false,
+        required: true,
         placeholder: "Please describe your playlist here"
     }]
 
@@ -119,13 +129,24 @@ export default function CreatePlaylist() {
 
     const handleFormSubmit = (e) => {
         e.preventDefault()
-        loaderContext.setIsFetching(true)
-        postCreatePlaylistForm()
+        if (allowToSubmit) {
+            loaderContext.setIsFetching(true)
+            postCreatePlaylistForm()
+        }
     }
 
     const handleInputChange = (e) => {
         const { name, value } = e.target
         setForm({...form, [name]: value})
+        if (!isLengthLarger(value, minLength[name])) {
+            setErrorMessage({...errorMessage, [name]: `Number of character must be greater than ${minLength[name]}`})
+        } else {
+            setErrorMessage({...errorMessage, [name]: ''})   
+        }
+    }
+
+    const canSubmit = () => {
+        return isLengthLarger(form.name, minLength.name) && isLengthLarger(form.description, minLength.description)
     }
 
     const init = () => {
@@ -143,6 +164,14 @@ export default function CreatePlaylist() {
         init()
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
+    useEffect(() => {
+        if (canSubmit()) {
+            setAllowToSubmit(true)
+        } else {
+            setAllowToSubmit(false)
+        }
+    }, [form])
+
     return (
         <div>
             {showSuccessModal &&
@@ -155,9 +184,10 @@ export default function CreatePlaylist() {
             <Text text="Create Playlist" textClass="main-title" />
             <CreatePageContext.Provider value={{
                 data: form,
-                handleChange: (e) => handleInputChange(e)
+                handleChange: (e) => handleInputChange(e),
+                errorMessage: errorMessage
             }}>
-                <Form type="pages" handleSubmit={handleFormSubmit} inputLayout={inputSections} />
+                <Form type="pages" allowSubmit={allowToSubmit} handleSubmit={handleFormSubmit} inputLayout={inputSections} />
             </CreatePageContext.Provider>
         </div>
     )

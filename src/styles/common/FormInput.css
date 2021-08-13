@@ -46,7 +46,6 @@
 
 .input-pages-container input, .input-pages-container textarea, .input-pages-container select {
     margin-top: 10px;
-    margin-bottom: 10px;
     font-family: 'Circular-Regular';
     font-size: 16px;
     border: 0;
@@ -66,7 +65,12 @@
     box-shadow: 0px 0px 5px 1px #1DB954;
 }
 
+.input-pages-container input {
+    margin-bottom: 6px;
+}
+
 .input-pages-container textarea {
     resize: none;
     height: 100px;
+    margin-bottom: 3px;
 }
