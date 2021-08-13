@@ -1,19 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Check if Track Card is rendered: 
-        <div id="track-card" className="wrapper">
-            <div className="image-wrapper">
-                <img src=https://www.rspca.org.uk/documents/1494939/0/what+to+do+with+stray+cats+and+kittens+%283%29.jpg/886bc0d5-1dc5-d2bf-eabd-473fd4d99886?t=1618404272031 alt=Lovey Dovey Album class="albumImage" />
-                <div className="button-wrapper">
+        <div id="track-card" class="wrapper">
+            <div class="image-wrapper">
+                <div class="image">
+                    <div class="image-placeholder-container">
+                        <img src="/unknown_playlist.png" alt="loading" class="image-placeholder" />
+                    </div>
+                    <img src="https://www.rspca.org.uk/documents/1494939/0/what+to+do+with+stray+cats+and+kittens+%283%29.jpg/886bc0d5-1dc5-d2bf-eabd-473fd4d99886?t=1618404272031" alt="Lovey Dovey Album" class="image-album display-none" />
+                </div>
+                <div class="button-wrapper">
                     <button onClick=function () {
         return fn.apply(this, arguments);
       } class="button-primary">
-                        <img src=/playbutton.png alt=Select Button class=play-button />}
+                        <img src="/playbutton.png" alt="Select Button" class="play-button" />}
                     </button>
                 </div>
             </div>
-            <div className="detail-container">
-                <div className="text-wrapper">
+            <div class="detail-container">
+                <div class="text-wrapper">
                     <p class="title">Catty Cat</p>
                     <p class="artistText">Adylan Roaffa, Azka Mumtaz</p>
                     <p class="albumText"/>Lovey Dovey</p>
@@ -28,11 +33,24 @@ exports[`Check if Track Card is rendered:
   <div
     class="image-wrapper"
   >
-    <img
-      alt="Lovey Dovey Album"
-      class="albumImage"
-      src="https://www.rspca.org.uk/documents/1494939/0/what+to+do+with+stray+cats+and+kittens+%283%29.jpg/886bc0d5-1dc5-d2bf-eabd-473fd4d99886?t=1618404272031"
-    />
+    <div
+      class="image"
+    >
+      <div
+        class="image-placeholder-container"
+      >
+        <img
+          alt="loading"
+          class="image-placeholder"
+          src="/unknown_playlist.png"
+        />
+      </div>
+      <img
+        alt="Lovey Dovey Album"
+        class="image-album image-display-none"
+        src="https://www.rspca.org.uk/documents/1494939/0/what+to+do+with+stray+cats+and+kittens+%283%29.jpg/886bc0d5-1dc5-d2bf-eabd-473fd4d99886?t=1618404272031"
+      />
+    </div>
     <div
       class="button-wrapper"
     >

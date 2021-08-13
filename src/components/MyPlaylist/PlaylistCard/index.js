@@ -15,7 +15,7 @@ export default function PlaylistCard({ data }) {
         !isObjectEmpty(data) &&
         <div className="playlist-card-wrapper" onClick={handleCardClick}>
             <div className="playlist-card-image-wrapper">
-                <Image imgUrl={data.imgUrl} imgAlt={data.imgAlt} imgClass="albumImage" />
+                <Image imgUrl={data.imgUrl} imgAlt={data.imgAlt} imgClass="image-album" />
             </div>
             <div className="playlist-card-detail-container">
                 <Text textClass="title" text={data.name} />

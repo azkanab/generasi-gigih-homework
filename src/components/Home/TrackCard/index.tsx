@@ -87,7 +87,7 @@ export default function TrackCard({ type, data, handleClick }: Props) {
 		!isObjectEmpty(track) ?
 		<div id="track-card" className="wrapper">
 			<div className="image-wrapper">
-				<Image imgUrl={track.imgUrl} imgAlt={track.altAlbum} imgClass="albumImage" />
+				<Image imgUrl={track.imgUrl} imgAlt={track.altAlbum} imgClass="image-album" />
 				<div className="button-wrapper">
 					{!isSelected() ?
 						<Button primary img={playButton} text={SELECT_BUTTON} handleClick={handleSelectButtonClick} />

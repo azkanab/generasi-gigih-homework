@@ -1,4 +1,25 @@
-.albumImage {
+.image-album {
+	height: auto;
+	width: 100%;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.image-display-none {
+	display: none;
+}
+
+.image-placeholder-container {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	min-width: 155px;
+	max-width: 200px;
+	min-height: 155px;
+	max-height: 200px;
+	background-color: #282828;
+}
+
+.image-placeholder {
 	height: auto;
 	width: 100%;
 	border-top-left-radius: 10px;
