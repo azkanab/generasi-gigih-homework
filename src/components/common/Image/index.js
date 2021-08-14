@@ -6,14 +6,18 @@ const BASIC_IMG_URL = '/unknown_playlist.png'
 export default function Image ({ imgUrl, imgAlt, imgClass }) {
     const [isLoaded, setIsLoaded] = useState(false)
 
+    const useLoadedState = () => {
+        return imgClass === "image-album"
+    }
+
     useEffect(() => {
-        if (imgClass !== "image-album") {
+        if (!useLoadedState()) {
             setIsLoaded(true)
         }
     }, [])  // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        imgClass === "image-album" ?
+        useLoadedState() ?
         <div className="image">
             {!isLoaded &&
                 <div className="image-placeholder-container">
