@@ -9,6 +9,7 @@
 	flex-direction: column;
 	cursor: pointer;
 	word-wrap: break-word;
+	flex-basis: 100%;
 }
 
 .playlist-card-wrapper:hover {
@@ -24,8 +25,9 @@
 
 .playlist-card-image-wrapper {
 	height: fit-content;
-	width: fit-content;
+	width: 100%;
 	position: relative;
+	aspect-ratio: 1 / 1;
 }
 
 @media screen and (max-width: 760px) {
