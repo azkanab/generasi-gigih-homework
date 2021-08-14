@@ -64,7 +64,8 @@ export default function Home() {
         }))
     }
 
-    const handleSearchClick = () => {
+    const handleOnClick = (e) => {
+        e.preventDefault()
         loaderContext.setIsFetching(true)
         if (params.q === '') {
             fetchRecommendation()
@@ -167,7 +168,7 @@ export default function Home() {
         <div>
             {showAddTrackModal && <AddToPlaylist data={selectedTrack} handleClose={handleCloseAddTrackModal} />}
             <Text textClass="main-title" text={greetingWord} />
-            <SearchForm handleChange={handleSearchChange} handleClick={handleSearchClick} />
+            <SearchForm handleChange={handleSearchChange} handleSubmit={handleOnClick} />
             <div className="trackCard-wrapper">
                 <div>
                     <div className="trackCard-container">

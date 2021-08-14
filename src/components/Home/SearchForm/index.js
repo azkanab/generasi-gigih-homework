@@ -2,13 +2,13 @@ import Input from "../../common/Input"
 import Button from "../../common/Button"
 import '../../../styles/Home/Form.css'
 
-export default function SearchForm({ handleChange, handleClick }) {
+export default function SearchForm({ handleChange, handleSubmit }) {
     return (
-        <div className="form-container">
+        <form className="form-container" onSubmit={handleSubmit}>
             <Input placeholder="Search" handleOnChange={handleChange} inputClass="search-input" />
             <div className="button-container">
-                <Button text="Search" handleClick={handleClick} primary />
+                <Button text="Search" type="submit" primary />
             </div>
-        </div>
+        </form>
     )
 }
