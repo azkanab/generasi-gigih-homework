@@ -9,7 +9,6 @@
 	flex-direction: column;
 	cursor: pointer;
 	word-wrap: break-word;
-	flex-basis: 100%;
 }
 
 .playlist-card__wrapper:hover {
@@ -30,21 +29,14 @@
 	aspect-ratio: 1 / 1;
 }
 
-@media screen and (max-width: 760px) {
-	.playlist-card__wrapper {
-	  max-width: calc(32.6% - 12.5px);
-	}
-}
-
 @media screen and (max-width: 660px) {
 	.playlist-card__wrapper {
-	  max-width: calc(50% - 12.5px);
+	  max-width: none;
 	}
 }
 
 @media screen and (max-width: 375px) {
 	.playlist-card__wrapper {
 	  margin: 12.5px;
-	  max-width: calc(50% - 25px);
 	}
 }

@@ -27,7 +27,7 @@ export default function Navbar({ openSideBar }) {
                 <Text text={LOGO_TEXT} textClass="common__logo-text" />
             </div>}
             {!isLogin() && <div className="navbar__side-menu" onClick={handleLogoClick}>
-                <Image imgUrl="/side-menu.png" imgAlt="Click to open sidebar menu" imgClass="common__logo-img" />
+                <Image imgUrl="/sidebar-menu.png" imgAlt="Click to open sidebar menu" imgClass="common__logo-img" />
             </div>}
             {!isLogin() && !isObjectEmpty(user) &&
                 <a href={user.url} className="navbar__profile">

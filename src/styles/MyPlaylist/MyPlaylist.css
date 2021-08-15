@@ -3,15 +3,25 @@
 }
 
 .my-playlist__track-card__container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 25px;
-    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 200px));
+    grid-gap: 25px;
+}
+
+@media screen and (max-width: 760px) {
+    .my-playlist__track-card__container {
+        grid-template-columns: repeat(3, minmax(100px, 1fr));
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .my-playlist__track-card__container {
+        grid-template-columns: repeat(2, minmax(100px, 1fr));
+    }
 }
 
 @media screen and (max-width: 375px) {
-    .my-playlist__track-card__container {
-        gap: 0px;
-    }
+	.my-playlist__track-card__container {
+	  grid-gap: 0px;
+	}
 }
