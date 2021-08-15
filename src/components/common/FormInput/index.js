@@ -23,7 +23,7 @@ export default function FormInput({ type, data }) {
             {isTextArea() ?
                 <textarea required={data.required} placeholder={data.placeholder} value={isPage(type) ? pageContext.data[data.id] : modalContext.data[data.id]} onChange={(e) => isPage(type) ? pageContext.handleChange(e) : modalContext.handleChange(e)} id={data.id} name={data.id} />
             :
-                <input required={data.required} placeholder={data.placeholder} value={isPage(type) ? pageContext.data[data.id] : modalContext.data[data.id]} onChange={(e) => isPage(type) ? pageContext.handleChange(e) : modalContext.handleChange(e)} id={data.id} name={data.id} type={data.type} />
+                <input autoComplete="off" required={data.required} placeholder={data.placeholder} value={isPage(type) ? pageContext.data[data.id] : modalContext.data[data.id]} onChange={(e) => isPage(type) ? pageContext.handleChange(e) : modalContext.handleChange(e)} id={data.id} name={data.id} type={data.type} />
             }
             <p style={{color: 'red'}}>{pageContext.errorMessage[data.id]}</p>
         </div>

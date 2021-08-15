@@ -1,4 +1,4 @@
-.search-input {
+.search-form__input {
     font-family: 'Circular-Regular';
     font-size: 16px;
     border: 0;
@@ -8,16 +8,17 @@
     width: 80%;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    -webkit-appearance: none;
 }
 
-.search-input:focus {
+.search-form__input:focus {
     border: 0.5px solid #1DB954;
     outline: none;
     box-shadow: 0px 0px 5px 1px #1DB954;
 }
 
 @media screen and (max-width: 450px) {
-	.search-input {
+	.search-form__input {
         min-width: 0px;
         width: 55%;
     }

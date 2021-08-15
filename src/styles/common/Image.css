@@ -1,6 +1,7 @@
 .image {
 	width: 100%;
 	height: 100%;
+	aspect-ratio: 1 / 1;
 }
 
 .track-card__album-image, .playlist-card__album-image {
