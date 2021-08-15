@@ -57,10 +57,16 @@ Here are some screenshot of this project once it is built or deployed in desktop
 1. Login, once you click the login button, you will be redirected to the Spotify login page in order to authorize the application to access your account information such as profile and playlist.
 P.S. : If you try it on [https://spotifi.vercel.app/](https://spotifi.vercel.app/), your e-mail account should be registered on my development dashboard first, so please notify me if you want to try this app. If you try it on the local, please use your own Spotify Key.
 
-<div style="display: flex; flex-wrap: wrap;">
-    <img src="/shots/desktop/login_desktop.png" style="width: 100%; flex: 2;">
-    <img src="/shots/mobile/login_mobile.jpg" style="flex: 1;"> 
-</div>
+<table>
+  <tr>
+    <td valign="top">
+        <img src="/shots/desktop/login_desktop.png" style="width: 100%; flex: 2;">
+    </td>
+    <td valign="top">
+        <img src="/shots/mobile/login_mobile.jpg" style="flex: 1;"> 
+    </td>
+  </tr>
+</table>
 
 2. After you are logged in, you will be redirected to the homepage. As you can see on the screenshot below, there are 50 trending songs that are provided and there is a navigation bar at the top and sidebar on the left. We can go to our profile by clicking the profile section at the top right.
 
