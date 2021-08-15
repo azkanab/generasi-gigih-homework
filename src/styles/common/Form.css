@@ -67,4 +67,8 @@
     .form__page {
         margin: 0px 12.5px;
     }
+
+    .common__page-button-wrapper {
+        margin: 0 12.5px;
+    }
 }

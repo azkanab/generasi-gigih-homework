@@ -173,7 +173,7 @@ export default function CreatePlaylist() {
     }, [form])
 
     return (
-        <div>
+        <div className="create-playlist">
             {showSuccessModal &&
             <div className="create-playlist__modal">
                 <div className="create-playlist__modal-content">

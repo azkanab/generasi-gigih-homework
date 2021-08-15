@@ -85,3 +85,9 @@
     height: 100px;
     margin-bottom: 3px;
 }
+
+@media screen and (max-width: 375px) {
+    .form-input__page-container {
+        padding: 0 12.5px;
+    }
+}

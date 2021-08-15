@@ -15,7 +15,7 @@ export default function AppRouter() {
             <Route exact path='/callback' component={Loading}></Route>
             <Route exact path='/login' component={Login}></Route>
             <Fragment>
-                <div className="page-container-home">
+                <div className="pages">
                     <PrivateRoute exact path="/" component={Home} />
                     <PrivateRoute exact path="/my-playlist" component={MyPlaylist} />
                     <Route exact path="/my-playlist/:playlistId" component={PlaylistDetail} />

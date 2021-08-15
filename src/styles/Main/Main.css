@@ -1,10 +1,10 @@
-.page-container-home {
+.pages {
     width: calc(100% - 200px);
     margin-left: 200px;
 }
 
 @media screen and (max-width: 950px) {
-    .page-container-home {
+    .pages {
         width: 100%;
         margin-left: 0px;
     }
