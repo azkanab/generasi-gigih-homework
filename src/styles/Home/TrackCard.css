@@ -1,4 +1,4 @@
-.wrapper {
+.track-card {
 	width: auto;
 	background-color: hsla(0,0%,50%,.1);
 	padding: 0px;
@@ -11,30 +11,30 @@
 	flex-basis: 100%;
 }
 
-.wrapper:hover {
+.track-card:hover {
 	background-color: hsla(0,0%,80%,.1);
 }
 
-.detail-container {
+.track-card__detail {
 	padding: 15px;
 	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
 }
 
-.text-wrapper {
+.track-card__text-wrapper {
 	flex: auto;
 	cursor: default;
 }
 
-.image-wrapper {
+.track-card__image-wrapper {
 	height: fit-content;
 	aspect-ratio: 1 / 1;
 	width: 100%;
 	position: relative;
 }
 
-.button-wrapper {
+.track-card__button-wrapper {
 	position: absolute;
 	right: 10px;
 	bottom: 10px;
@@ -42,7 +42,7 @@
 	transition: opacity 300ms;
 }
 
-.wrapper button {
+.track-card button {
 	font-family: 'Circular-Bold';
 	color: white;
 	font-size: 14px;
@@ -60,31 +60,38 @@
 	text-align: center;
 }
 
-.wrapper button:hover {
+.track-card button:hover {
 	transition: all 300ms;
 	width: 36px;
 	height: 36px;
 }
 
-.wrapper:hover .button-wrapper {
+.track-card:hover .track-card__button-wrapper {
 	flex: auto;
 	opacity: 1;
 }
 
 @media screen and (max-width: 760px) {
-	.wrapper {
+	.track-card {
 	  max-width: calc(32.6% - 12.5px);
 	}
 }
 
-@media screen and (max-width: 660px) {
-	.wrapper {
+@media screen and (max-width: 666px) {
+	.track-card {
+	  max-width: calc(32% - 12.5px);
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.track-card {
 	  max-width: calc(50% - 12.5px);
 	}
 }
 
+
 @media screen and (max-width: 375px) {
-	.wrapper {
+	.track-card {
 	  margin: 12.5px;
 	  max-width: calc(50% - 25px);
 	}

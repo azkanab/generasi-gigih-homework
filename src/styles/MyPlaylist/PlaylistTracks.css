@@ -1,4 +1,4 @@
-.list-playlist {
+.playlist-tracks {
     border-collapse: collapse;
     width: 100%;
     color: white;
@@ -22,16 +22,16 @@ tr {
     cursor: default;
 }
 
-.table-row-track:hover {
+.track-row:hover {
     background-color: hsla(0,0%,80%,.1);
 }
 
-.title-table-wrapper {
+.track-row__title {
     display: flex;
     align-items: center;
 }
 
-.table-text-wrapper {
+.track-row__text-wrapper {
     margin-left: 20px;
 }
 

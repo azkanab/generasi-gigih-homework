@@ -119,10 +119,10 @@ export default function AddToPlaylist({ handleClose, data }) {
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <div className="modal">
-            <div className="modal-content">
+        <div className="add-to-playlist__modal">
+            <div className="add-to-playlist__modal-content">
                {isObjectEmpty(statusLayout) ? <div>
-                    <Text text="Select your playlist" textClass="create-playlist-title" />
+                    <Text text="Select your playlist" textClass="add-to-playlist__modal-title" />
                     <Text text={INFO_TEXT} />
                     <Form selected={selected} handleSubmit={handleAddButtonClick} playlists={playlists} handleCloseModal={handleClose} />
                 </div>

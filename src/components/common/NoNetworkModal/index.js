@@ -19,13 +19,13 @@ export default function NoNetworkModal() {
     }
 
     return (
-        <div className="modal">
-            <div className="modal-content">
+        <div className="no-network-modal">
+            <div className="no-network-modal__content">
             <div style={{textAlign: 'center'}}>
-                <Image imgUrl={layout.imgUrl} imgAlt="No Internet Connection" imgClass="success-img" />
-                <Text text={layout.title} textClass="success-title-text" />
-                <Text text={layout.description} textClass="success-info-text" />
-                <div className="create-modal-button-wrapper">
+                <Image imgUrl={layout.imgUrl} imgAlt="No Internet Connection" imgClass="no-network-modal__img" />
+                <Text text={layout.title} textClass="no-network-modal__title" />
+                <Text text={layout.description} textClass="no-network-modal__description" />
+                <div className="common__modal-button-wrapper">
                     <div className="left">
                         <Button text="Close" handleClick={layout.handleClose} />
                     </div>

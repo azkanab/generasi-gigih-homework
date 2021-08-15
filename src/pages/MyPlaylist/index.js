@@ -13,6 +13,7 @@ import { useState } from "react"
 import isArrayEmpty from "../../utils/isArrayEmpty"
 import { isLogin } from "../../utils/isLogin"
 import { HomeContext } from ".."
+import '../../styles/MyPlaylist/MyPlaylist.css'
 
 export default function MyPlaylist() {
     const dispatch = useDispatch()
@@ -92,9 +93,9 @@ export default function MyPlaylist() {
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <div>
-            <Text text="Playlists" textClass="main-title" />
-            <div className="trackCard-container">
+        <div className="my-playlist">
+            <Text text="Playlists" textClass="common__main-title" />
+            <div className="my-playlist__track-card__container">
                 {renderPlaylistCard()}
             </div>
         </div>

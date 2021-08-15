@@ -15,14 +15,14 @@ export default function Form(props) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div className="input-container">
+        <form onSubmit={handleSubmit} className="add-to-playlist__form">
+            <div className="add-to-playlist__form-input">
                 <select required value={value} onChange={handleOnChange}>
                     <option value="">Select your playlist</option>
                     {renderOption()}
                 </select>
             </div>
-            <div className="create-modal-button-wrapper">
+            <div className="add-to-playlist__form-button-wrapper">
                 <div className="left">
                     <Button text="Cancel" handleClick={handleCloseModal}  />
                 </div>

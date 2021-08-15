@@ -1,4 +1,4 @@
-.sidebar-menu {
+.side-menu {
     display: flex;
     align-items: center;
     margin: 10px 10px;
@@ -7,7 +7,7 @@
     cursor: pointer;
 }
 
-.sidebar-menu:hover {
+.side-menu:hover {
     background-color: #282828;  
 }
 

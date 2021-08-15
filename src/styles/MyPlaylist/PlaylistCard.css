@@ -1,4 +1,4 @@
-.playlist-card-wrapper {
+.playlist-card__wrapper {
 	width: auto;
 	background-color: hsla(0,0%,50%,.1);
 	padding: 0px;
@@ -12,18 +12,18 @@
 	flex-basis: 100%;
 }
 
-.playlist-card-wrapper:hover {
+.playlist-card__wrapper:hover {
 	background-color: hsla(0,0%,80%,.1);
 }
 
-.playlist-card-detail-container {
+.playlist-card__detail {
 	padding: 15px;
 	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
 }
 
-.playlist-card-image-wrapper {
+.playlist-card__image-wrapper {
 	height: fit-content;
 	width: 100%;
 	position: relative;
@@ -31,19 +31,19 @@
 }
 
 @media screen and (max-width: 760px) {
-	.playlist-card-wrapper {
+	.playlist-card__wrapper {
 	  max-width: calc(32.6% - 12.5px);
 	}
 }
 
 @media screen and (max-width: 660px) {
-	.playlist-card-wrapper {
+	.playlist-card__wrapper {
 	  max-width: calc(50% - 12.5px);
 	}
 }
 
 @media screen and (max-width: 375px) {
-	.playlist-card-wrapper {
+	.playlist-card__wrapper {
 	  margin: 12.5px;
 	  max-width: calc(50% - 25px);
 	}

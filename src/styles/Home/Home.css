@@ -1,4 +1,8 @@
-.trackCard-container {
+.home {
+  width: 100%;
+}
+
+.home__track-card__container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -6,12 +10,12 @@
     width: fit-content;
 }
 
-.trackCard-wrapper {
+.home__track-card {
     justify-content: center;
 }
 
 @media screen and (max-width: 375px) {
-    .trackCard-container {
+    .home__track-card__container {
       gap: 0px;
     }
   }

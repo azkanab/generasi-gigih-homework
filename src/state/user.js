@@ -7,7 +7,7 @@ export const userState = atom({
         username: 'anonymous'
     },
     effects_UNSTABLE: [
-        localStorageEffect('my_profile')
+        localStorageEffect('my_navbar__profile')
     ]
 })
 

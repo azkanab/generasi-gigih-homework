@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Check if Track Card is rendered: 
-        <div id="track-card" class="wrapper">
-            <div class="image-wrapper">
+        <div id="track-card" class="track-card">
+            <div class="track-card__image-wrapper">
                 <div class="image">
-                    <div class="image-placeholder-container">
-                        <img src="/unknown_playlist.png" alt="loading" class="image-placeholder" />
+                    <div class="image__placeholder-container">
+                        <img src="/unknown_playlist.png" alt="loading" class="image__placeholder" />
                     </div>
-                    <img src="https://www.rspca.org.uk/documents/1494939/0/what+to+do+with+stray+cats+and+kittens+%283%29.jpg/886bc0d5-1dc5-d2bf-eabd-473fd4d99886?t=1618404272031" alt="Lovey Dovey Album" class="image-album display-none" />
+                    <img src="https://www.rspca.org.uk/documents/1494939/0/what+to+do+with+stray+cats+and+kittens+%283%29.jpg/886bc0d5-1dc5-d2bf-eabd-473fd4d99886?t=1618404272031" alt="Lovey Dovey Album" class="track-card__album-image image__display-none" />
                 </div>
-                <div class="button-wrapper">
+                <div class="track-card__button-wrapper">
                     <button onClick=function () {
         return fn.apply(this, arguments);
       } class="button-primary">
@@ -17,42 +17,42 @@ exports[`Check if Track Card is rendered:
                     </button>
                 </div>
             </div>
-            <div class="detail-container">
-                <div class="text-wrapper">
-                    <p class="title">Catty Cat</p>
-                    <p class="artistText">Adylan Roaffa, Azka Mumtaz</p>
-                    <p class="albumText"/>Lovey Dovey</p>
+            <div class="track-card__detail">
+                <div class="track-card__text-wrapper">
+                    <p class="card__title">Catty Cat</p>
+                    <p class="card__artist">Adylan Roaffa, Azka Mumtaz</p>
+                    <p class="card__album"/>Lovey Dovey</p>
                 </div>
             </div>
         </div>
      1`] = `
 <div
-  class="wrapper"
+  class="track-card"
   id="track-card"
 >
   <div
-    class="image-wrapper"
+    class="track-card__image-wrapper"
   >
     <div
       class="image"
     >
       <div
-        class="image-placeholder-container"
+        class="image__placeholder-container"
       >
         <img
           alt="loading"
-          class="image-placeholder"
+          class="image__placeholder"
           src="/unknown_playlist.png"
         />
       </div>
       <img
         alt="Lovey Dovey Album"
-        class="image-album image-display-none"
+        class="track-card__album-image image__display-none"
         src="https://www.rspca.org.uk/documents/1494939/0/what+to+do+with+stray+cats+and+kittens+%283%29.jpg/886bc0d5-1dc5-d2bf-eabd-473fd4d99886?t=1618404272031"
       />
     </div>
     <div
-      class="button-wrapper"
+      class="track-card__button-wrapper"
     >
       <button
         class="button-primary"
@@ -67,23 +67,23 @@ exports[`Check if Track Card is rendered:
     </div>
   </div>
   <div
-    class="detail-container"
+    class="track-card__detail"
   >
     <div
-      class="text-wrapper"
+      class="track-card__text-wrapper"
     >
       <p
-        class="title"
+        class="card__title"
       >
         Catty Cat
       </p>
       <p
-        class="artistText"
+        class="card__artist"
       >
         Adylan Roaffa, Azka Mumtaz
       </p>
       <p
-        class="albumText"
+        class="card__album"
       >
         Lovey Dovey
       </p>

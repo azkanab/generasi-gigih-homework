@@ -4,9 +4,9 @@ import '../../../styles/Sidebar/SideMenu.css'
 
 export default function SideMenu({ data }) {
     return (
-        <div className={data.active ? 'sidebar-menu active' : 'sidebar-menu'} onClick={data.handleOnClick}>
-            <Image imgUrl={data.img} imgClass="sidebar-menu-logo" />
-            <Text text={data.text} textClass="sidebar-menu-text" />
+        <div className={data.active ? 'side-menu active' : 'side-menu'} onClick={data.handleOnClick}>
+            <Image imgUrl={data.img} imgClass="side-menu__logo" />
+            <Text text={data.text} textClass="side-menu__text" />
         </div>
     )
 }

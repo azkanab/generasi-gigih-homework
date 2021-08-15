@@ -47,6 +47,7 @@ export default function Home() {
     const handleCloseAddTrackModal = () => {
         setSelectedTrack({})
         setShowAddTrackModal(false)
+        loaderContext.setIsFetching(false)
     }
 
     const renderTrackCard = () => {
@@ -165,17 +166,15 @@ export default function Home() {
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <div>
+        <section className="home">
             {showAddTrackModal && <AddToPlaylist data={selectedTrack} handleClose={handleCloseAddTrackModal} />}
-            <Text textClass="main-title" text={greetingWord} />
+            <Text textClass="common__main-title" text={greetingWord} />
             <SearchForm handleChange={handleSearchChange} handleSubmit={handleOnClick} />
-            <div className="trackCard-wrapper">
-                <div>
-                    <div className="trackCard-container">
-                        {renderTrackCard()}
-                    </div>
+            <div className="home__track-card">
+                <div className="home__track-card__container">
+                    {renderTrackCard()}
                 </div>
             </div>
-        </div>
+        </section>
     )
 }

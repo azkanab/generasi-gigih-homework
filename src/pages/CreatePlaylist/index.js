@@ -175,13 +175,13 @@ export default function CreatePlaylist() {
     return (
         <div>
             {showSuccessModal &&
-            <div className="modal">
-                <div className="modal-content">
+            <div className="create-playlist__modal">
+                <div className="create-playlist__modal-content">
                     <SuccessModalContent layout={statusLayout} />
                 </div>
             </div>
             }
-            <Text text="Create Playlist" textClass="main-title" />
+            <Text text="Create Playlist" textClass="common__main-title" />
             <CreatePageContext.Provider value={{
                 data: form,
                 handleChange: (e) => handleInputChange(e),

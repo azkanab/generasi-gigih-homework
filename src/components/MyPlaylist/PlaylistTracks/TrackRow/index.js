@@ -7,20 +7,20 @@ import { getArtistText } from '../../../../utils/getArtistText'
 
 export default function TrackRow({ track, id}) {
     return (
-    <tr key={track.uri} className="table-row-track">
+    <tr key={track.uri} className="track-row">
         <td>{id+1}</td>
         <td>
-            <div className="title-table-wrapper">
+            <div className="track-row__title">
                 <div>
                     <Image imgUrl={track.imgUrl} />
                 </div>
-                <div className='table-text-wrapper'>
-                    <Text text={track.title} textClass="table-track-title" />
+                <div className='track-row__text-wrapper'>
+                    <Text text={track.title} textClass="track-row__song-title" />
                     <Text text={getArtistText(track.artists)} />
                 </div>
             </div>
         </td>
-        <td className="hide-in-mobile"><Text text={track.albumName} textClass="table-track-album" /></td>
+        <td className="hide-in-mobile"><Text text={track.albumName} textClass="track-row__album" /></td>
         <td className="hide-in-mobile">{changeDateFormat(track.date_added)}</td>
         <td className="hide-in-mobile">{msToTime(track.duration)}</td>
     </tr>

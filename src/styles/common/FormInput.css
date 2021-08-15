@@ -1,14 +1,14 @@
-.input-container {
+.form-input__container, .add-to-playlist__form-input {
     display: block;
     margin-bottom: 15px;
 }
 
-.input-container label {
+.form-input__container label, .add-to-playlist__form-input label {
     font-family: 'Circular-Regular';
     font-size: 16px;
 }
 
-.input-container input, .input-container textarea, .input-container select {
+.form-input__container input, .form-input__container textarea, .add-to-playlist__form-input select {
     margin-top: 5px;
     font-family: 'Circular-Regular';
     font-size: 16px;
@@ -22,29 +22,38 @@
     background-color: white;
 }
 
-.input-container input:focus, .input-container textarea:focus, select:focus {
+.add-to-playlist__form-input select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-position: right .75rem center;
+    background-repeat: no-repeat;
+    background-size: 16px 12px;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.form-input__container input:focus, .form-input__container textarea:focus, .add-to-playlist__form-input select:focus {
     border: 0.5px solid #1DB954;
     outline: none;
     box-shadow: 0px 0px 5px 1px #1DB954;
 }
 
-.input-container textarea {
+.form-input__container textarea {
     resize: none;
     height: 100px;
 }
 
-.input-pages-container {
+.form-input__page-container {
     display: block;
     margin-bottom: 15px;
 }
 
-.input-pages-container label {
+.form-input__page-container label {
     font-family: 'Circular-Medium';
     font-size: 16px;
     color: white;
 }
 
-.input-pages-container input, .input-pages-container textarea, .input-pages-container select {
+.form-input__page-container input, .form-input__page-container textarea, .form-input__page-container select {
     margin-top: 10px;
     font-family: 'Circular-Regular';
     font-size: 16px;
@@ -59,17 +68,17 @@
     color: white;
 }
 
-.input-pages-container input:focus, .input-pages-container textarea:focus, .input-pages-container select:focus {
+.form-input__page-container input:focus, .form-input__page-container textarea:focus, .form-input__page-container select:focus {
     border: 0.5px solid #1DB954;
     outline: none;
     box-shadow: 0px 0px 5px 1px #1DB954;
 }
 
-.input-pages-container input {
+.form-input__page-container input {
     margin-bottom: 6px;
 }
 
-.input-pages-container textarea {
+.form-input__page-container textarea {
     resize: none;
     height: 100px;
     margin-bottom: 3px;

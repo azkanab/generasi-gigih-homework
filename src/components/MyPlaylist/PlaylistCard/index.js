@@ -13,12 +13,12 @@ export default function PlaylistCard({ data }) {
 
     return (
         !isObjectEmpty(data) &&
-        <div className="playlist-card-wrapper" onClick={handleCardClick}>
-            <div className="playlist-card-image-wrapper">
-                <Image imgUrl={data.imgUrl} imgAlt={data.imgAlt} imgClass="image-album" />
+        <div className="playlist-card__wrapper" onClick={handleCardClick}>
+            <div className="playlist-card__image-wrapper">
+                <Image imgUrl={data.imgUrl} imgAlt={data.imgAlt} imgClass="playlist-card__album-image" />
             </div>
-            <div className="playlist-card-detail-container">
-                <Text textClass="title" text={data.name} />
+            <div className="playlist-card__detail">
+                <Text textClass="card__title" text={data.name} />
             </div>
         </div>
     )

@@ -3,18 +3,18 @@
 	height: 100%;
 }
 
-.image-album {
+.track-card__album-image, .playlist-card__album-image {
 	height: auto;
 	width: 100%;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 }
 
-.image-display-none {
+.image__display-none {
 	display: none;
 }
 
-.image-placeholder-container {
+.image__placeholder-container {
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	width: 100%;
@@ -22,7 +22,7 @@
 	background-color: #282828;
 }
 
-.image-placeholder {
+.image__placeholder {
 	height: 100%;
 	width: 100%;
 	border-top-left-radius: 10px;
@@ -35,12 +35,12 @@
 	margin-right: 10px;
 }
 
-.logo-img {
+.common__logo-img {
     width: 25px;
     height: 25px;
 }
 
-.sidebar-menu-logo {
+.side-menu__logo {
 	width: auto;
 	height: 20px;
 }
@@ -50,7 +50,7 @@
 	height: auto;
 }
 
-.profile-img {
+.navbar__profile-img {
 	height: 135%;
 	position: absolute;
 	top: 0;
@@ -59,13 +59,13 @@
 	margin-top: -5.5px;
 }
 
-.success-img {
+.success-modal__img, .no-network-modal__img {
 	width: 200px;
 	height: auto;
 	margin-bottom: 20px;
 }
 
-.playlist-detail-img {
+.playlist-info__img {
 	width: 200px;
 	height: auto;
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;

@@ -21,17 +21,17 @@ export default function Navbar({ openSideBar }) {
     }
 
     return (
-        <div className={isLogin() ? 'header' : 'header home'}>
-            {isLogin() && <div className="logo">
-                <Image imgUrl={LOGO_IMG_URL} imgClass="logo-img" />
-                <Text text={LOGO_TEXT} textClass="header-logo-text" />
+        <div className={isLogin() ? 'navbar' : 'navbar navbar-home'}>
+            {isLogin() && <div className="navbar__logo">
+                <Image imgUrl={LOGO_IMG_URL} imgClass="common__logo-img" />
+                <Text text={LOGO_TEXT} textClass="common__logo-text" />
             </div>}
-            {!isLogin() && <div className="sidebar-menu-bar" onClick={handleLogoClick}>
-                <Image imgUrl="/sidebar-menu.png" imgAlt="Click to open sidebar menu" imgClass="logo-img" />
+            {!isLogin() && <div className="navbar__side-menu" onClick={handleLogoClick}>
+                <Image imgUrl="/side-menu.png" imgAlt="Click to open sidebar menu" imgClass="common__logo-img" />
             </div>}
             {!isLogin() && !isObjectEmpty(user) &&
-                <a href={user.url} className="profile">
-                    <Image imgUrl={user.imgUrl} imgAlt='User Picture' imgClass="profile-img" />
+                <a href={user.url} className="navbar__profile">
+                    <Image imgUrl={user.imgUrl} imgAlt='User Picture' imgClass="navbar__profile-img" />
                     <p>{user.username}</p>
                 </a>     
             }

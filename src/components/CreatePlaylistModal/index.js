@@ -104,8 +104,8 @@ export default function CreatePlaylistModal({ handleClose }) {
     }
     
     return (
-        <div className="modal">
-            <div className="modal-content">
+        <div className="create-playlist__modal">
+            <div className="create-playlist__modal-content">
                 {isObjectEmpty(statusLayout) ?
                 <CreateModalContext.Provider value={{
                     data: form,

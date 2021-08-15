@@ -90,7 +90,7 @@ export default function PlaylistDetail() {
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <div>
+        <div className="playlist-detail">
             {!isObjectEmpty(playlist) && <PlaylistInfo data={playlist.playlistInfo} />}
             <PlaylistTracks tracks={playlist.tracks} />
         </div>

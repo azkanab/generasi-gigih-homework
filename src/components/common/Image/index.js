@@ -7,7 +7,7 @@ export default function Image ({ imgUrl, imgAlt, imgClass }) {
     const [isLoaded, setIsLoaded] = useState(false)
 
     const useLoadedState = () => {
-        return imgClass === "image-album"
+        return imgClass === "track-card__album-image" || imgClass === "playlist-card__album-image"
     }
 
     useEffect(() => {
@@ -20,11 +20,11 @@ export default function Image ({ imgUrl, imgAlt, imgClass }) {
         useLoadedState() ?
         <div className="image">
             {!isLoaded &&
-                <div className="image-placeholder-container">
-                    <img src={BASIC_IMG_URL} alt="loading" className="image-placeholder" />
+                <div className="image__placeholder-container">
+                    <img src={BASIC_IMG_URL} alt="loading" className="image__placeholder" />
                 </div>
             }
-            <img src={imgUrl} alt={imgAlt} className={isLoaded ? imgClass : imgClass + ' image-display-none'} onLoad={() => setIsLoaded(true)} />
+            <img src={imgUrl} alt={imgAlt} className={isLoaded ? imgClass : imgClass + ' image__display-none'} onLoad={() => setIsLoaded(true)} />
         </div>
         :
         <img src={imgUrl} alt={imgAlt} className={imgClass} />

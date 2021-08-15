@@ -85,10 +85,10 @@ export default function TrackCard({ type, data, handleClick }: Props) {
 
     return (
 		!isObjectEmpty(track) ?
-		<div id="track-card" className="wrapper">
-			<div className="image-wrapper">
-				<Image imgUrl={track.imgUrl} imgAlt={track.altAlbum} imgClass="image-album" />
-				<div className="button-wrapper">
+		<div id="track-card" className="track-card">
+			<div className="track-card__image-wrapper">
+				<Image imgUrl={track.imgUrl} imgAlt={track.altAlbum} imgClass="track-card__album-image" />
+				<div className="track-card__button-wrapper">
 					{!isSelected() ?
 						<Button primary img={playButton} text={SELECT_BUTTON} handleClick={handleSelectButtonClick} />
 					:
@@ -96,11 +96,11 @@ export default function TrackCard({ type, data, handleClick }: Props) {
 					}
 				</div>
 			</div>
-			<div className="detail-container">
-				<div className="text-wrapper">
-					<Text textClass="title" text={track.title} />
-					<Text textClass="artistText" text={getArtistText(track.artists)} />
-					<Text textClass="albumText" text={track.album} />
+			<div className="track-card__detail">
+				<div className="track-card__text-wrapper">
+					<Text textClass="card__title" text={track.title} />
+					<Text textClass="card__artist" text={getArtistText(track.artists)} />
+					<Text textClass="card__album" text={track.album} />
 				</div>
 			</div>
 		</div>

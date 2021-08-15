@@ -1,4 +1,4 @@
-.playlist-info-container {
+.playlist-info {
     display: flex;
     align-items: center;
     margin-bottom: 50px;
@@ -6,23 +6,23 @@
     justify-content: flex-start;
 }
 
-.playlist-info-text-wrapper {
+.playlist-info__text {
     margin-left: 30px;
 }
 
 @media screen and (max-width: 792px) {
-    .playlist-info-text-wrapper {
+    .playlist-info__text {
         flex: 2;
     }
 }
 
 @media screen and (max-width: 575px) {
-    .playlist-info-container {
+    .playlist-info {
         flex-direction: column;
         margin-bottom: 30px;
     }
 
-    .playlist-info-text-wrapper {
+    .playlist-info__text {
         margin-top: 40px;
         margin-left: 0px;
         width: 100%;
@@ -30,7 +30,7 @@
 }
 
 @media screen and (max-width: 375px) {
-	.playlist-info-container {
+	.playlist-info {
 	  padding-left: 12.5px;
 	  padding-right: 12.5px;
 	}

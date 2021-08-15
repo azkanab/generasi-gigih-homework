@@ -3,7 +3,7 @@
     margin-left: 200px;
 }
 
-@media screen and (max-width: 925px) {
+@media screen and (max-width: 950px) {
     .page-container-home {
         width: 100%;
         margin-left: 0px;

@@ -39,25 +39,25 @@ test('Check if Track Card is rendered', () => {
         <TrackCard type={type} data={data} handleClick={onClick} />
     )
     expect(container.firstChild).toMatchSnapshot(`
-        <div id="track-card" class="wrapper">
-            <div class="image-wrapper">
+        <div id="track-card" class="track-card">
+            <div class="track-card__image-wrapper">
                 <div class="image">
-                    <div class="image-placeholder-container">
-                        <img src="/unknown_playlist.png" alt="loading" class="image-placeholder" />
+                    <div class="image__placeholder-container">
+                        <img src="/unknown_playlist.png" alt="loading" class="image__placeholder" />
                     </div>
-                    <img src="${data.imgUrl}" alt="${data.albumName + ' Album'}" class="image-album display-none" />
+                    <img src="${data.imgUrl}" alt="${data.albumName + ' Album'}" class="track-card__album-image image__display-none" />
                 </div>
-                <div class="button-wrapper">
+                <div class="track-card__button-wrapper">
                     <button onClick=${handleSelectButtonClick} class="button-primary">
                         <img src="${playButton.imgUrl}" alt="${playButton.imgAlt}" class="${playButton.imgClass}" />}
                     </button>
                 </div>
             </div>
-            <div class="detail-container">
-                <div class="text-wrapper">
-                    <p class="title">${data.trackTitle}</p>
-                    <p class="artistText">${getArtistText(data.artistName)}</p>
-                    <p class="albumText"/>${data.albumName}</p>
+            <div class="track-card__detail">
+                <div class="track-card__text-wrapper">
+                    <p class="card__title">${data.trackTitle}</p>
+                    <p class="card__artist">${getArtistText(data.artistName)}</p>
+                    <p class="card__album"/>${data.albumName}</p>
                 </div>
             </div>
         </div>

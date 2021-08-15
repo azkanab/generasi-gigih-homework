@@ -14,7 +14,7 @@ export default function PlaylistTracks({ tracks }) {
 
     return (
         <div>
-            <table className="list-playlist">
+            <table className="playlist-tracks">
                 <tbody>
                     <tr>
                         <th>#</th>

@@ -11,11 +11,12 @@ p {
 	margin-top: 20px;
 }
 
-.main-title {
+.common__main-title {
 	font-family: 'Circular-Black';
 	font-size: 32px;
 	color: white;
 	margin-bottom: 30px;
+	width: 100%;
 }
 
 .login-title {
@@ -25,16 +26,16 @@ p {
 	margin: 0px;
 }
 
-.title {
+.card__title {
 	font-family: 'Circular-Bold';
 	font-size: 16px;
 }
 
-.albumText {
+.card__album {
 	margin: 10px 0px;
 }
 
-.header-logo-text {
+.common__logo-text {
 	font-family: 'Circular-Bold';
     color: white;
     font-size: 20px;
@@ -44,7 +45,7 @@ p {
 	margin-bottom: 0px;
 }
 
-.sidebar-menu-text {
+.side-menu__text {
 	font-family: 'Circular-Medium';
 	color: white;
 	font-size: 16px;
@@ -53,50 +54,50 @@ p {
 	margin-bottom: 0px;
 }
 
-.create-playlist-title {
+.create-playlist-title, .add-to-playlist__modal-title {
 	font-family: 'Circular-Bold';
 	color: black;
 	font-size: 24px;
 	margin-bottom: 30px;
 }
 
-.success-title-text {
+.success-modal__title, .no-network-modal__title {
 	font-family: 'Circular-Bold';
 	font-size: 22px;
 	margin-bottom: 10px;
 }
 
-.success-info-text {
+.success-modal__description, .no-network-modal__description {
 	font-family: 'Circular-Regular';
 	font-size: 16px;
 }
 
-.playlist-detail {
+.playlist-info__text-title {
 	font-family: 'Circular-Medium';
 	font-size: 14px;
 	color: white;
 	letter-spacing: 5px;
 }
 
-.playlist-detail-title {
+.playlist-info__text-name {
 	font-family: 'Circular-Bold';
 	font-size: 32px;
 	color: white;
 }
 
-.playlist-detail-description {
+.playlist-info__text-description {
 	font-family: 'Circular-Regular';
 	font-size: 16px;
 	color: white;
 	margin-top: 20px;
 }
 
-.table-track-title {
+.track-row__song-title {
 	font-family: 'Circular-Medium';
 	font-size: 16px;
 }
 
-.table-track-album {
+.track-row__album {
 	font-family: 'Circular-Regular';
 	font-size: 16px;
 }
@@ -116,7 +117,7 @@ p {
 }
 
 @media screen and (max-width: 450px) {
-	.playlist-detail-title {
+	.playlist-info__text-name {
 		font-size: 24px;
 	}
 
@@ -126,7 +127,7 @@ p {
 }
 
 @media screen and (max-width: 375px) {
-	.main-title {
+	.common__main-title {
 	  margin-left: 12.5px;
 	  margin-right: 12.5px;
 	  font-size: 28px;

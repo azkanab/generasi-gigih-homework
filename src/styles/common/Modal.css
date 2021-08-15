@@ -1,4 +1,4 @@
-.modal {
+.add-to-playlist__modal, .create-playlist__modal, .no-network-modal {
     position: fixed;
     z-index: 5;
     left: 0;
@@ -12,7 +12,7 @@
     align-items: center;
 }
 
-.modal-content {
+.add-to-playlist__modal-content, .create-playlist__modal-content, .no-network-modal__content {
     background-color: #fefefe;
     padding: 24px;
     width: 30%;
@@ -21,25 +21,25 @@
 }
 
 @media screen and (max-width: 870px) {
-	.modal-content {
+	.add-to-playlist__modal-content, .create-playlist__modal-content, .no-network-modal__content {
 	  width: 50%;
 	}
 }
 
 @media screen and (max-width: 480px) {
-	.modal-content {
+	.add-to-playlist__modal-content, .create-playlist__modal-content, .no-network-modal__content {
 	  width: 70%;
 	}
 }
 
 @media screen and (max-width: 380px) {
-	.modal-content {
+	.add-to-playlist__modal-content, .create-playlist__modal-content, .no-network-modal__content {
 	  width: 80%;
 	}
 }
 
 @media screen and (max-width: 328px) {
-	.modal-content {
+	.add-to-playlist__modal-content, .create-playlist__modal-content, .no-network-modal__content {
 	  padding: 24px 15px;
 	}
 }

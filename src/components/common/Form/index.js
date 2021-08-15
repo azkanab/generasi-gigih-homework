@@ -12,9 +12,9 @@ export default function Form({ type, allowSubmit, handleSubmit, handleClose, inp
     }
 
     return (
-        <form onSubmit={(e) => handleSubmit(e)} className={type === 'pages' && "create-playlist_form-container"}>
+        <form onSubmit={(e) => handleSubmit(e)} className={type === 'pages' && "form__page"}>
             {renderInputSections()}
-            <div className={type === 'modal' ? "create-modal-button-wrapper" : "create-page-button-wrapper"}>
+            <div className={type === 'modal' ? "common__modal-button-wrapper" : "common__page-button-wrapper"}>
                 <div className="left">
                     {type === 'modal' && <Button text="Cancel" handleClick={handleClose} /> }
                 </div>

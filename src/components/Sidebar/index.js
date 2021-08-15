@@ -126,19 +126,19 @@ export default function Sidebar({ show, handleCloseSidebar }) {
     return (
         !hideSidebar() &&
         <div>
-            <div className={show ? 'sidebar-container open' : 'sidebar-container'}>
-                <div className="logo-sidebar" onClick={handleHomeClick}>
-                    <Image imgUrl={LOGO_IMG_URL} imgClass="logo-img" />
-                    <Text text={LOGO_TEXT} textClass="header-logo-text" />
+            <div className={show ? 'sidebar open' : 'sidebar'}>
+                <div className="sidebar__logo" onClick={handleHomeClick}>
+                    <Image imgUrl={LOGO_IMG_URL} imgClass="common__logo-img" />
+                    <Text text={LOGO_TEXT} textClass="common__logo-text" />
                 </div>
-                <div className="sidebar-menu-wrapper">
+                <div className="sidebar__menu-wrapper">
                     {renderSideMenu()}
                 </div>
-                <div className="copyright-wrapper">
+                <div className="sidebar__copyright">
                     <Text text="© Azka N. Mumtaz" textClass="copyright-text" />
                 </div>
             </div>
-            {show && <div className="sidebar-layer" onClick={handleCloseSidebar} />}
+            {show && <div className="sidebar__close" onClick={handleCloseSidebar} />}
         </div>
     )
 }
