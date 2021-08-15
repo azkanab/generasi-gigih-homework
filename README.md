@@ -17,7 +17,7 @@ You can have a full experience of this project [here](https://spotifi.vercel.app
 
 ### Built With
 
-This project was built using [React.js](https://reactjs.org/) with React Router to make them as an SPA (Single Page Application), Redux and Recoil State for the state management, Jest for the test, and Vercel for the deployment. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was built using [React.js](https://reactjs.org/) with React Router to make them as an SPA (Single Page Application), Redux and Recoil State for the state management, Jest for the test, a little bit of Typescript, and Vercel for the deployment. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Getting Started
 
