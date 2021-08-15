@@ -94,7 +94,7 @@ We can search for other songs based on the keyword in the input we have filled i
   </tr>
 </table>
 
-3. Navigate yourself by the sidebar on the left. You can make use of the burger menu at the left side of the navigation bar to open the sidebar. Each menu will lead you to each feature, except for the logout, it will redirect you to the login page and you won't be able to go to the homepage anymore unless you create a new token by redoing the login.
+3. Navigate yourself using the sidebar on the left. You can make use of the burger menu at the left side of the navigation bar to open the sidebar. Each menu will lead you to each feature, except for the logout, it will redirect you to the login page and you won't be able to go to the homepage anymore unless you create a new token by redoing the login.
 
 <table>
   <tr>
