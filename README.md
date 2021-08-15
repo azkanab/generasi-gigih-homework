@@ -216,10 +216,10 @@ You also can go to the detail page to see the description of your playlist and l
 <table>
   <tr>
     <td valign="top">
-        <img src="/shots/desktop/detail-playlist_2_desktop.png">
+        <img src="/shots/desktop/playlist-detail_2_desktop.png">
     </td>
     <td valign="top">
-        <img src="/shots/mobile/detail-playlist_2_mobile.jpg"> 
+        <img src="/shots/mobile/playlist-detail_2_mobile.jpg"> 
     </td>
   </tr>
 </table>
