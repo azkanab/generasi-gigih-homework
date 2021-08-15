@@ -1,6 +1,7 @@
 import FormInput from "../FormInput"
 import Button from "../Button"
 import '../../../styles/common/Form.css'
+import { isModal } from "../../../utils/componentType"
 
 export default function Form({ type, allowSubmit, handleSubmit, handleClose, inputLayout }) {
     const renderInputSections = () => {
@@ -12,11 +13,11 @@ export default function Form({ type, allowSubmit, handleSubmit, handleClose, inp
     }
 
     return (
-        <form onSubmit={(e) => handleSubmit(e)} className={type === 'pages' && "form__page"}>
+        <form onSubmit={(e) => handleSubmit(e)}>
             {renderInputSections()}
-            <div className={type === 'modal' ? "common__modal-button-wrapper" : "common__page-button-wrapper"}>
+            <div className={isModal(type) ? "common__modal-button-wrapper" : "common__page-button-wrapper"}>
                 <div className="left">
-                    {type === 'modal' && <Button text="Cancel" handleClick={handleClose} /> }
+                    {isModal(type) && <Button text="Cancel" handleClick={handleClose} /> }
                 </div>
                 <div className="right">
                     {allowSubmit ?
