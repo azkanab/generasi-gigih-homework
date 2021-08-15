@@ -48,7 +48,7 @@ npm test
 ```
 and you will find this
 
-<img src="/shots/unit_test.png" height="200px">
+<img src="/shots/unit_test.png" style="width: 100%; max-width: 450px;">
 
 ## Preview
 
