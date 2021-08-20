@@ -23,22 +23,24 @@ This project was built using [React.js](https://reactjs.org/) with React Router 
 
 This section will explain more about how to run, test, and built this project in the development mode
 
-### Run the app
+### Run the app on local
 
 1. Clone the repo
 ```
 git clone https://github.com/azkanab/generasi-gigih-homework.git
 ```
 2. Open the repo's folder on your terminal
-3. Install NPM Packages
+3. Change the Spotify Key on .env file to your own Spotify Key
+4. Change the Redirect URI on .env file to http://localhost:3000
+5. Install NPM Packages
 ```
 npm install
 ```
-4. Run the app
+6. Run the app
 ```
 npm start
 ```
-5. Open [http://localhost:3000](http://localhost:3000) to view it your browser. The page will reload if you make edits
+7. Open [http://localhost:3000](http://localhost:3000) to view it your browser. The page will reload if you make edits
 
 ### Testing
 
