@@ -16,7 +16,7 @@ export default function Sidebar({ show, handleCloseSidebar }) {
     /* eslint-disable */
     const [user, setUser] = useRecoilState(userState)
     /* eslint-enable */
-    const LOGO_IMG_URL = '/spotify.png'
+    const LOGO_IMG_URL = '/spotifi.png'
     const LOGO_TEXT = 'Spotifi'
     const location = useLocation()
     const history = useHistory()

@@ -8,7 +8,7 @@ import isObjectEmpty from '../../utils/isObjectEmpty'
 
 export default function Navbar({ openSideBar }) {
     const user = useRecoilValue(getUserState)
-    const LOGO_IMG_URL = '/spotify.png'
+    const LOGO_IMG_URL = '/spotifi.png'
     const LOGO_TEXT = 'Spotifi'
     const location = useLocation()
 
