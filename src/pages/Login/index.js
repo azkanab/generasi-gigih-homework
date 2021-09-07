@@ -40,7 +40,7 @@ export default function Login() {
         <div className="login-container">
             <div>
                 <div className="login-logo-container">
-                    <Image imgUrl="/spotify.png" imgAlt="Spotifi Logo" imgClass="login-logo" />
+                    <Image imgUrl="/spotifi.png" imgAlt="Spotifi Logo" imgClass="login-logo" />
                     <Text text={SPOTIFI_TITLE} textClass="login-title"  />
                 </div>
                 <a href={FULL_URL} className="login-button-wrapper">
